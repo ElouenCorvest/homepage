@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+:root {
+    --color-primary: #5E82FF;
+    --color-secondary: #3498db;
+    --background-color-dark: #1D1D20;
+    --color-text-primary: #FFFFFF;
+}
+
+body {
+    background-color: var(--background-color-dark);
+    color: var(--color-text-primary);
+}
