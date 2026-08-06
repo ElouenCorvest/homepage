@@ -1,15 +1,15 @@
 <script lang="ts">
+    import { page } from '$app/state';
     import faviconSvg from '$lib/assets/favicon.svg?raw';
-	import favicon from '$lib/assets/favicon.svg';
 </script>
 
 <nav>
-    <div class="logo-container logo">
+    <a class="logo-container logo" href="/">
         {@html faviconSvg}
-    </div>
-    <a href="/" class="nav-link">Home</a>
-	<a href="/about" class="nav-link">About</a>
-	<a href="/contact" class="nav-link">Contact</a>
+    </a>
+    <a href="/" class="nav-link" class:active={page.url.pathname === '/'}>Home</a>
+	<a href="/cv" class="nav-link" class:active={page.url.pathname === '/cv'}>CV</a>
+	<a href="/contact" class="nav-link" class:active={page.url.pathname === '/contact'}>Contact</a>
 </nav>
 
 <style>
@@ -23,9 +23,14 @@
         display: flex;
         align-items: center;
         padding: 1rem;
+        background-color: var(--background-color-dark);
         border-bottom-width: 2px;
         border-bottom-style: solid;
         border-bottom-color: var(--color-primary);
+
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
     .logo {
@@ -40,4 +45,10 @@
     .nav-link:hover {
         text-decoration: underline;
     }
+
+    .nav-link.active {
+        color: var(--color-primary);
+        font-weight: bold; 
+    }
+
 </style>

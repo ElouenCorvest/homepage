@@ -13,3 +13,12 @@ body {
     background-color: var(--background-color-dark);
     color: var(--color-text-primary);
 }
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
