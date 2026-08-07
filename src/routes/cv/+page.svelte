@@ -4,6 +4,77 @@
     import Linkedin from '$lib/components/icons/Linkedin.svelte';
     import Github from '$lib/components/icons/Github.svelte';
     import Rating from '$lib/components/Rating.svelte';
+
+    import { onMount } from 'svelte';
+    let { orcidId = '0009-0006-3796-9343' } = $props();
+    let publications = $state([]);
+    let loading = $state(true);
+    let error = $state(null);
+    
+    onMount(async () => {
+        try {
+            const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcidId}/works`, {
+                headers: {
+                'Accept': 'application/json'
+                }
+            });
+
+            const data = await summaryRes.json();
+            let parsedData = data.group.map(item => item["work-summary"][0]);
+            parsedData.sort((a, b) => {
+                const yearA = parseInt(a['publication-date']?.year?.value || '0');
+                const yearB = parseInt(b['publication-date']?.year?.value || '0');
+                return yearB - yearA;
+            });
+            const recentWorks = parsedData.slice(0, 3);
+
+            const worksWithAuthors = await Promise.all(
+                recentWorks.map(async (work) => {
+                    const putCode = work['put-code'];
+
+                    const detailRes = await fetch(`https://pub.orcid.org/v3.0/${orcidId}/work/${putCode}`, {
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    const detail = await detailRes.json();
+                    const contributors = detail.contributors?.contributor || [];
+                    const authors = contributors
+                        .map(c => c['credit-name']?.value)
+                        .filter(Boolean) // Remove empty/null names
+                    
+                    const myName = "Corvest";
+                    const boldIfMe = (name) => name.includes(myName) ? `<strong>${name}</strong>` : name;
+                    let authorStr = "";
+                    if (authors.length > 6) {
+                        const myIdx = authors.findIndex(name => name.includes(myName));
+                        if (myIdx > 5) {
+                            authorStr = `${authors[0]}, ${authors[1]}, <em>et al.</em> (including ${boldIfMe(authors[myIdx])})`;
+                        } else {
+                            authorStr = `${boldIfMe(authors[0])}, ${boldIfMe(authors[1])}, <em>et al.</em>`;
+                        }
+                    } else {
+                        authorStr = authors.map(boldIfMe).join(', ');
+                    }
+                    
+                    const doiUrl =  detail["external-ids"]["external-id"][0]["external-id-url"]["value"]
+                    const title = detail["title"]["title"]["value"]
+                    return {
+                        title: title,
+                        year: detail['publication-date']?.year?.value || 'Unknown',
+                        journal: detail['journal-title']?.value || null,
+                        doiUrl: doiUrl,
+                        authors: authorStr || "Authors not listed"
+                    };
+                })
+            );
+            publications = worksWithAuthors.filter(w => w !== null);
+        } catch (err) {
+            error = err.message;
+        } finally {
+            loading = false
+        }
+    });
+
 </script>
 
 <div class="cv-document">
@@ -75,17 +146,48 @@
                 </div>
             </div>
         </div>
-        <div class="cv-section">
+        <div class="cv-section publication-list">
             <h1>Written Work</h1>
-            <div class="cv-education">
-                <p><strong>Research Assistant</strong><br/>in Computational Life Sciences<br/></p>
-                <p>Working on the development of a new model for plant photosynthesis</p>
+            {#if loading}
+                <p>Loading...</p>
+            {:else if error}
+                <p>Error: {error}</p>
+            {:else if publications.length > 0}
+                {#each publications as publication, i}
+                    <p>{@html publication.authors} ({publication.year}) {publication.title}. {#if publication.journal}<em>{publication.journal}.</em> {/if}</p>
+                    <a class:sepline={i !== publications.length - 1} href={publication.doiUrl} target="_blank">{publication.doiUrl}</a>
+                {/each}
+            {:else}
+                <p>No publications to display.</p>
+            {/if}
+        </div>
+        <div class="cv-section">
+            <h1>Work Experience</h1>
+            <div class="cv-experience">
+                <div>
+                    <strong>Consultant for GreenSloth:</strong>
+                    <p>Consultant for desing, development, and publishing of the GreenSloth project</p>
+                </div>
                 <div class="cv-education-date">
                     <div class="cv-header-point">
-                        <Calendar size={16} class="cv-header-icon"/><span>2023 - 2024</span>
+                        <Calendar size={16} class="cv-header-icon"/><span>2026</span>
                     </div>
                     <div class="cv-header-point">
                         <MapPinned size={16} class="cv-header-icon"/><span>RWTH, Aachen</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cv-experience">
+                <div>
+                    <strong>Research Assistant at AG Töpfer:</strong>
+                    <p>Implementation of flux-balance analysis models to simulate plant-growth and refininf existing code</p>
+                </div>
+                <div class="cv-education-date">
+                    <div class="cv-header-point">
+                        <Calendar size={16} class="cv-header-icon"/><span>2024</span>
+                    </div>
+                    <div class="cv-header-point">
+                        <MapPinned size={16} class="cv-header-icon"/><span>Uni. of Cologne</span>
                     </div>
                 </div>
             </div>
@@ -133,7 +235,7 @@
                 <p>Raster Graphics</p>
                 <Rating score={3} maxScore={5} size="16px" />
             </div>
-            <div class="cv-rating cols-2 sepline">
+            <div class="cv-rating cols-2">
                 <p>Vector Graphics</p>
                 <Rating score={4} maxScore={5} size="16px" />
             </div>
@@ -280,7 +382,7 @@
 
         > h1 {
             border-bottom: 2px solid var(--color-primary);
-            margin-bottom: 0.5em;
+            margin-bottom: 0.2em;
         }
 
         > :not(:first-child) {
@@ -310,6 +412,14 @@
         display: flex;
         flex-direction: column;
         padding-left: 0.2em;
+    }
+
+    .cv-experience {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1em;
+        align-content: center;
+        align-items: center;
     }
 
     .cv-rating {
