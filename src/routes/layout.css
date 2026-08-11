@@ -2,15 +2,22 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
-:root {
+:root, [data-theme="blue"] {
     --color-primary: #5E82FF;
     --color-secondary: #3498db;
-    --background-color-dark: #1D1D20;
+    --background-color: #1D1D20;
+    --color-text-primary: #FFFFFF;
+}
+
+[data-theme="green"] {
+    --color-primary: #71e971;
+    --color-secondary: #3498db;
+    --background-color: #1D1D20;
     --color-text-primary: #FFFFFF;
 }
 
 body {
-    background-color: var(--background-color-dark);
+    background-color: var(--background-color);
     color: var(--color-text-primary);
 }
 

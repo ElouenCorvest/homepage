@@ -4,12 +4,14 @@
     import Linkedin from '$lib/components/icons/Linkedin.svelte';
     import Github from '$lib/components/icons/Github.svelte';
     import Rating from '$lib/components/Rating.svelte';
+    import DownloadButton from '$lib/components/DownloadButton.svelte';
 
     import { onMount } from 'svelte';
     let { orcidId = '0009-0006-3796-9343' } = $props();
     let publications = $state([]);
     let loading = $state(true);
     let error = $state(null);
+    let maxAuthorsToShow = 2;
     
     onMount(async () => {
         try {
@@ -45,9 +47,9 @@
                     const myName = "Corvest";
                     const boldIfMe = (name) => name.includes(myName) ? `<strong>${name}</strong>` : name;
                     let authorStr = "";
-                    if (authors.length > 6) {
+                    if (authors.length > maxAuthorsToShow) {
                         const myIdx = authors.findIndex(name => name.includes(myName));
-                        if (myIdx > 5) {
+                        if (myIdx > maxAuthorsToShow - 1) {
                             authorStr = `${authors[0]}, ${authors[1]}, <em>et al.</em> (including ${boldIfMe(authors[myIdx])})`;
                         } else {
                             authorStr = `${boldIfMe(authors[0])}, ${boldIfMe(authors[1])}, <em>et al.</em>`;
@@ -75,7 +77,21 @@
         }
     });
 
+function triggerPrint() {
+    window.print();
+  }
+
 </script>
+
+<div class=header>
+    <h1>Curriculum Vitae</h1>
+    <div class="header-sub">
+        <p>This CV can be directly downloaded or printed.</p>
+        <DownloadButton onclick={triggerPrint}/>
+    </div>
+    
+</div>
+
 
 <div class="cv-document">
     <div class="cv-header">
@@ -166,7 +182,7 @@
             <div class="cv-experience">
                 <div>
                     <strong>Consultant for GreenSloth:</strong>
-                    <p>Consultant for desing, development, and publishing of the GreenSloth project</p>
+                    <p>Consultant for design, development, and publishing of the GreenSloth project</p>
                 </div>
                 <div class="cv-education-date">
                     <div class="cv-header-point">
@@ -188,6 +204,20 @@
                     </div>
                     <div class="cv-header-point">
                         <MapPinned size={16} class="cv-header-icon"/><span>Uni. of Cologne</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cv-experience">
+                <div>
+                    <strong>Teaching Assistant:</strong>
+                    <p>Preparation of teaching rooms using Moodle; Theoritical tutorial on physical chemistry; Practical course in plant physiology and botanical theory; Grading and examination</p>
+                </div>
+                <div class="cv-education-date">
+                    <div class="cv-header-point">
+                        <Calendar size={16} class="cv-header-icon"/><span>2022-2024</span>
+                    </div>
+                    <div class="cv-header-point">
+                        <MapPinned size={16} class="cv-header-icon"/><span>RWTH Aachen</span>
                     </div>
                 </div>
             </div>
@@ -259,6 +289,24 @@
 </div>
 
 <style>
+
+    .header {
+        display: grid;
+        grid-template-rows: max-content max-content;
+        align-items: center;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding-bottom: 1em;
+    }
+
+    .header-sub {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     .cv-document {
         font-size: 0.9rem;
         color: #000000;
@@ -266,11 +314,11 @@
         grid-template-columns: 1.5fr 1fr;
         grid-template-rows: max-content 1fr;
         column-gap: 1em;
-        aspect-ratio: 210 / 297;
-        width: 100%;
-        max-width: 800px;
+        width: 210mm;
+        height: 297mm;
         margin: 0 auto;
         padding: 2em;
+        box-sizing: border-box;
         background: white;
         box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
@@ -285,7 +333,7 @@
 
     .cv-header-info {
         display: grid;
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 1fr 4fr;
         padding-bottom: 0.5em;
         border-bottom: 5px solid var(--color-primary);
     }
@@ -372,8 +420,7 @@
     .cv-col {
         display: flex;
         flex-direction: column;
-        align-content: space-between;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
     .cv-section {
@@ -446,5 +493,32 @@
     .sepline {
         border-bottom: 1px dashed var(--color-primary);
     }
+
+    @media print {
+    .cv-document {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    :global(body *) {
+      visibility: hidden;
+    }
+
+    .cv-document, :global(.cv-document *) {
+      visibility: visible;
+    }
+
+    .cv-document {
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+  }
 
 </style>
