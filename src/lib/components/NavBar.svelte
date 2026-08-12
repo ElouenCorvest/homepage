@@ -1,8 +1,15 @@
 <script lang="ts">
     import { page } from '$app/state';
+    import CustomSelect from '$lib/components/CustomSelect.svelte';
     import faviconSvg from '$lib/assets/favicon.svg?raw';
 
     const palettes = ["blue", "green"];
+    let palettesObject = {};
+    palettes.forEach((palette) => {
+        console.log(palette)
+        palettesObject[palette] = palette.charAt(0).toUpperCase() + palette.slice(1) <div></div>;
+    });
+    console.log(palettesObject);
     let currentTheme = $state("blue");
     let isOpen = $state(false);
 
@@ -21,6 +28,7 @@
     });
 
     function selectTheme(theme: string) {
+        console.log(theme);
         currentTheme = theme;
         isOpen = false;
     }
@@ -30,19 +38,7 @@
     <a class="logo-container logo" href="/">
         {@html faviconSvg}
     </a>
-    <div class="theme-switcher">
-        <label for="theme-select">Theme:</label>
-        
-        <!-- Bind the select directly to our reactive $state -->
-        <select id="theme-select" bind:value={currentTheme} class="theme-select">
-            {#each palettes as theme}
-            <!-- Capitalize the first letter for the UI -->
-            <option value={theme}>
-                {theme.charAt(0).toUpperCase() + theme.slice(1)} <div class="theme-color" style="background-color: var(--color-primary);"></div>
-            </option>
-            {/each}
-        </select>
-    </div>
+    <CustomSelect value={palettesObject[currentTheme]} optionsObject={palettesObject} onclick={selectTheme}/>
     <a href="/" class="nav-link" class:active={page.url.pathname === '/'}>Home</a>
 	<a href="/cv" class="nav-link" class:active={page.url.pathname === '/cv'}>CV</a>
 	<a href="/contact" class="nav-link" class:active={page.url.pathname === '/contact'}>Contact</a>
@@ -88,6 +84,7 @@
     }
 
     #theme-select {
+        display: flex;
         background-color: var(--background-color);
         color: var(--color-text-primary);
         border: 1px solid var(--color-primary);
