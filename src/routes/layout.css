@@ -1,24 +1,31 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+@import "../../src/lib/assets/sanzo-palettes.css";
 
-:root, [data-theme="blue"] {
-    --color-primary: #5E82FF;
-    --color-secondary: #3498db;
-    --background-color: #1D1D20;
-    --color-text-primary: #FFFFFF;
+:root, [visual-theme="dark"] {
+    --color-primary: hsl(from var(--theme-primary) h s calc(100 - l));
+    --color-secondary: hsl(from var(--theme-secondary) h s calc(100 - l));
+    --color-accent: hsl(from var(--theme-accent) h s calc(100 - l));
+
+    --color-background: hsl(from var(--theme-primary) h s 2%);
+    --color-background-notice: hsl(from var(--theme-primary) h s 6%);
+    --color-text: hsl(from var(--theme-primary) h s 98%);
 }
 
-[data-theme="green"] {
-    --color-primary: #71e971;
-    --color-secondary: #3498db;
-    --background-color: #1D1D20;
-    --color-text-primary: #FFFFFF;
+[visual-theme="light"] {
+    --color-primary: var(--theme-primary);
+    --color-secondary: var(--theme-secondary);
+    --color-accent: var(--theme-accent);
+
+    --color-background: hsl(from var(--theme-primary) h s 98%);
+    --color-background-notice: hsl(from var(--theme-primary) h s 94%);
+    --color-text: hsl(from var(--theme-primary) h s 2%);
 }
 
 body {
-    background-color: var(--background-color);
-    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
 
 h1 {
@@ -28,4 +35,8 @@ h1 {
 
 .bold {
     font-weight: bold;
+}
+
+.icon {
+    stroke: var(--color-primary);
 }

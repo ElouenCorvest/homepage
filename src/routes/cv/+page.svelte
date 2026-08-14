@@ -77,9 +77,10 @@
         }
     });
 
-function triggerPrint() {
-    window.print();
-  }
+    function triggerPrint() {
+        console.log("Printing CV...");
+        window.print();
+    }
 
 </script>
 
@@ -321,7 +322,9 @@ function triggerPrint() {
         box-sizing: border-box;
         background: white;
         box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+        background-image: url('/paper_texture.svg');
+        background-color: rgba(255, 255, 255, 0.8);
+        background-blend-mode: screen;
     }
 
     .cv-header {
@@ -495,30 +498,32 @@ function triggerPrint() {
     }
 
     @media print {
-    .cv-document {
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    :global(body *) {
-      visibility: hidden;
-    }
+        .cv-document {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            background-color: "white";
+            background-image: none;
+        }
+        :global(body *) {
+            visibility: hidden;
+        }
 
-    .cv-document, :global(.cv-document *) {
-      visibility: visible;
-    }
+        .cv-document, :global(.cv-document *) {
+            visibility: visible;
+        }
 
-    .cv-document {
-      position: absolute;
-      left: 0;
-      top: 0;
-      margin: 0;
-      width: 100%;
-    }
+        .cv-document {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 0;
+            width: 100%;
+        }
 
-    @page {
-      size: A4 portrait;
-      margin: 0;
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
     }
-  }
 
 </style>
