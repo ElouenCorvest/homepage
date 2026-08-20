@@ -38,6 +38,11 @@ h1 {
     font-weight: bold;
 }
 
+.notice-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 .icon {
     stroke: var(--color-primary);
 }
@@ -55,4 +60,10 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.card {
+    background: var(--color-background-notice);
+    padding: 1rem;
+    border-radius: 0.5rem;
 }

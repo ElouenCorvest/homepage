@@ -73,7 +73,6 @@
         position: relative;
         width: 100%;
         max-width: 200px;
-        font-family: sans-serif;
     }
 
     .trigger {
@@ -84,9 +83,9 @@
         gap: 0.5rem;
         padding: 0.5rem 0.75rem;
         background: var(--background-color);
-        border: 1px solid var(--color-primary);
+        border: 1px solid var(--color-secondary);
         border-radius: 6px;
-        color: var(--current-theme-color, var(--color-text-primary));
+        color: var(--color-accent);
         cursor: pointer;
         text-align: left;
         font-size: 0.95rem;

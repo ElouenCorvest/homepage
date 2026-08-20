@@ -1,11 +1,45 @@
 <script lang="ts">
     import themeIds from '$lib/assets/sanzo-3-palettes.json';
     import CustomSelect from '$lib/components/CustomSelect.svelte';
-    import { ArrowLeftRight, House, Inbox, Newspaper, Pause, Heart, CirclePlus, SkipForward } from 'lucide-svelte';
+    import { ArrowLeftRight, House, Inbox, Newspaper, Pause, Heart, CirclePlus, SkipForward, Angry, Frown, Meh, Smile, SmilePlus } from 'lucide-svelte';
+
+    function getTimeAgo(dateString) {
+        const pastDate = new Date(dateString);
+        const now = new Date(); // Gets the exact current time
+
+        // 1. Calculate Total Days Ago (Using milliseconds)
+        const diffInMs = Math.abs(now.getTime() - pastDate.getTime());
+        const totalDaysAgo = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+        // 2. Calculate Total Months Ago
+        let totalMonthsAgo = (now.getFullYear() - pastDate.getFullYear()) * 12;
+        totalMonthsAgo -= pastDate.getMonth();
+        totalMonthsAgo += now.getMonth();
+        
+        // Adjust if the current day of the month hasn't passed the past day yet
+        if (now.getDate() < pastDate.getDate()) {
+            totalMonthsAgo--;
+        }
+
+        // 3. Calculate Total Years Ago
+        let totalYearsAgo = now.getFullYear() - pastDate.getFullYear();
+        
+        // Adjust if the current month/day hasn't passed the past month/day yet
+        if (now.getMonth() < pastDate.getMonth() || 
+        (now.getMonth() === pastDate.getMonth() && now.getDate() < pastDate.getDate())) {
+            totalYearsAgo--;
+        }
+
+        return {
+            days: totalDaysAgo,
+            months: Math.max(0, totalMonthsAgo),
+            years: Math.max(0, totalYearsAgo)
+        };
+    }
 
     // This grabs the data returned from the +page.server.ts file
     let { data } = $props();
-    console.log(data.topTrack);
+
     let topTrackTitle = data.topTrack ? data.topTrack.name : 'No top track found';
     let topTrackArtist = data.topTrack ? data.topTrack.artists.map((a: any) => a.name).join(', ') : 'Unknown artist';
     let topTrackAlbumArt = data.topTrack ? data.topTrack.album.images[0]?.url : '';
@@ -13,6 +47,13 @@
     let topTrackDurationFormatted = formatDuration(topTrackDurationMs);
     let trackPercentage = 60
     let trackProgress = formatDuration(topTrackDurationMs * trackPercentage / 100);
+
+    let hevyLastWorkout = data.hevyLastWorkout;
+    console.log('hevyLastWorkout:', hevyLastWorkout.exercises[0]);
+    let hevyLastWorkoutTitle = hevyLastWorkout ? hevyLastWorkout.title : 'No last workout found';
+    let hevyLastWorkoutDate = hevyLastWorkout ? new Date(hevyLastWorkout.start_time).toLocaleDateString("de-DE") : 'No last workout found';
+    let hevyLastWorkoutDiff = hevyLastWorkout ? getTimeAgo(hevyLastWorkout.start_time) : null;
+    let hevyLastWorkoutExercises = hevyLastWorkout ? hevyLastWorkout.exercises : [];
 
     function formatDuration(ms) {
         const minutes = Math.floor(ms / 60000);
@@ -106,18 +147,18 @@
         style:--theme-secondary={colorSources[1] !== 'secondary' ? `var(--safe-${colorSources[1]})` : null}
         style:--theme-accent={colorSources[2] !== 'accent' ? `var(--safe-${colorSources[2]})` : null}
         >
-            <div class="sidebar">
+            <div class="sidebar card">
                 <div class="sidebar-item"><House size={20} class="icon"/> Home</div>
                 <div class="sidebar-item"><Inbox size={20} class="icon"/> Inbox</div>
                 <div class="sidebar-item"><Newspaper size={20} class="icon"/> News</div>
             </div>
             <div class="mock-content">
-                <div class="mock-audio-player">
+                <div class="mock-audio-player card">
                     <img src={topTrackAlbumArt} alt="Album Art" class="mock-album-art"/>
                     <div class="mock-audio-player-info">
                         <div class="mock-audio-player-header">
                             <div class="mock-audio-player-text">
-                                <p class="mock-song-title">{topTrackTitle}</p>
+                                <p class="mock-song-title notice-text">{topTrackTitle}</p>
                                 <p class="mock-song-artist">{topTrackArtist}</p>
                             </div>
                             <Heart class="big-icon"/>
@@ -137,12 +178,59 @@
                         </div>
                     </div>
                 </div>
+                <div class="mock-content-row">
+                    <div class="mock-gym-history card">
+                        <div class="mock-gym-history-header">
+                            <div class="two-row-text">
+                                <p>Last Workout:</p>
+                                <p class="notice-text">{hevyLastWorkoutTitle}</p>
+                            </div>
+                            {#if hevyLastWorkoutDiff?.years > 0}
+                                <Angry class="big-icon"/>
+                            {:else if hevyLastWorkoutDiff?.months > 1}
+                                <Frown class="big-icon"/>
+                            {:else if hevyLastWorkoutDiff?.months === 1}
+                                <Meh class="big-icon"/>
+                            {:else}
+                                <Smile class="big-icon"/>
+                            {/if}
+                            <div class="two-row-text">
+                                <p>Date: {hevyLastWorkoutDate}</p>
+                                <p>{hevyLastWorkoutDiff.days} day{hevyLastWorkoutDiff.days > 1 ? 's' : ''} ago</p>
+                            </div>
+                        </div>
+                        <div class="mock-gym-history-exercises">
+                            {#each hevyLastWorkoutExercises as exercise}
+                                <div class="mock-gym-history-exercise">
+                                    <p>{exercise.title}</p>
+                                    <p>Sets</p>
+                                    {#each exercise.sets as set}
+                                        <div class="mock-gym-history-set">
+                                            {#if set.type === "warmup"}
+                                                <p>W</p>
+                                            {:else}
+                                                <p>{set.index + 1}</p>
+                                            {/if}
+                                            <p>{set.weigth_kg}</p>
+                                        </div>
+                                    {/each}
+                                </div>
+                            {/each}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <style>
+    .palette-chooser-body {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
     .palette-preview {
         display: flex;
         flex-direction: row;
@@ -176,9 +264,6 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        padding: 1rem;
-        background: var(--color-background-notice);
-        border-radius: 0.5rem;
     }
 
     .sidebar-item {
@@ -195,15 +280,17 @@
         transition: 0.2s ease-in-out;
     }
 
+    .mock-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
     .mock-audio-player {
         display: grid;
         grid-template-columns: 1fr 4fr;
         align-items: center;
         justify-content: center;
         height: fit-content;
-        background: var(--color-background-notice);
-        border-radius: 0.5rem;
-        padding: 1rem;
         gap: 1rem;
     }
 
@@ -231,11 +318,6 @@
         flex-direction: column;
         margin-right: auto;
 
-        > :first-child {
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
         > :last-child {
             font-size: 0.9rem;
         }
@@ -244,7 +326,7 @@
     :global(.big-icon) {
         width: 2rem;
         height: auto;
-        stroke: var(--color-accent);
+        stroke: var(--color-secondary);
         cursor: pointer;
     }
 
@@ -295,8 +377,23 @@
     .mock-pause-button-container {
         height: auto;
         padding: 0.5rem;
-        border: 0.2rem solid var(--color-accent);
+        border: 0.2rem solid var(--color-secondary);
         border-radius: 50%;
+    }
+
+    .mock-gym-history-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+
+        > :first-child {
+            margin-right: auto;
+        }
+    }
+    .two-row-text {
+        display: flex;
+        flex-direction: column;
     }
 
 </style>

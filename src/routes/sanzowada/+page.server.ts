@@ -1,5 +1,5 @@
 // src/routes/sanzowada/+page.server.ts
-import { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } from '$env/static/private';
+import { HEVY_API_KEY, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } from '$env/static/private';
 
 // Helper to get a fresh Access Token using your permanent Refresh Token
 async function getAccessToken() {
@@ -19,6 +19,7 @@ async function getAccessToken() {
 }
 
 export async function load() {
+    // Spotify
     const { access_token } = await getAccessToken();
 
     // Fetch top tracks with time_range=short_term (last 4 weeks)
@@ -31,7 +32,20 @@ export async function load() {
     const topTracksData = await topTracksRes.json();
     const topTrack = topTracksData.items?.[0] || null;
 
+    // Hevy
+    const hevyRes = await fetch('https://api.hevyapp.com/v1/workouts?page=1&pageSize=1', {
+        method: 'GET', // Standard practice is to capitalize HTTP methods
+        headers: {
+            'api-key': HEVY_API_KEY 
+        }
+    });
+
+    const rawText = await hevyRes.text();
+    const hevyData = JSON.parse(rawText)
+    const hevyLastWorkout = hevyData.workouts[0]
+    
     return {
-        topTrack: topTrack
+        topTrack: topTrack,
+        hevyLastWorkout: hevyLastWorkout
     };
 }
