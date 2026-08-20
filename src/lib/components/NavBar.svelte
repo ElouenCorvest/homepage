@@ -57,7 +57,7 @@
 </script>
 
 <nav>
-    <a class="logo-container logo" href="/">
+    <a class="logo-container logo" href={resolve('/')}>
         {@html faviconSvg}
     </a>
 
@@ -70,9 +70,9 @@
 
     <CustomSelect bind:value={currentTheme} options={themeOptions} onchange={selectTheme} />
 
-    <a href="{resolve('/')}" class="nav-link" class:active={page.url.pathname === '/'}>Home</a>
-    <a href="{resolve('/cv')}" class="nav-link" class:active={page.url.pathname.startsWith('/cv')}>CV</a>
-    <a href="{resolve('/sanzowada')}" class="nav-link" class:active={page.url.pathname.startsWith('/sanzowada')}>Sanzo Wada Collection</a>
+    <a href={resolve('/')} class="nav-link" class:active={page.url.pathname === '/'}>Home</a>
+    <a href={resolve('/cv')} class="nav-link" class:active={page.url.pathname.startsWith('/cv')}>CV</a>
+    <a href={resolve('/sanzowada')} class="nav-link" class:active={page.url.pathname.startsWith('/sanzowada')}>Sanzo Wada Collection</a>
 </nav>
 
 <style>
