@@ -4,7 +4,7 @@
     import faviconSvg from '$lib/assets/favicon.svg?raw';
     import ToggleButton from '$lib/components/ToggleButton.svelte';
     import { MoonStar, SunMedium } from 'lucide-svelte';
-    import themeIds from '$lib/assets/sanzo-palettes.json';
+    import themeIds from '$lib/assets/sanzo-3-palettes.json';
 
     function buildThemeLabel(themeId: string): string {
         const label = themeId.charAt(0).toUpperCase() + themeId.slice(1);
@@ -71,7 +71,7 @@
 
     <a href="/" class="nav-link" class:active={page.url.pathname === '/'}>Home</a>
     <a href="/cv" class="nav-link" class:active={page.url.pathname.startsWith('/cv')}>CV</a>
-    <a href="/contact" class="nav-link" class:active={page.url.pathname.startsWith('/contact')}>Contact</a>
+    <a href="/sanzowada" class="nav-link" class:active={page.url.pathname.startsWith('/sanzowada')}>Sanzo Wada Collection</a>
 </nav>
 
 <style>

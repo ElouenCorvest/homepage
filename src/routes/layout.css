@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
-@import "../../src/lib/assets/sanzo-palettes.css";
+@import "../../src/lib/assets/sanzo-3-palettes.css";
 
 :root, [visual-theme="dark"] {
     --color-primary: hsl(from var(--theme-primary) h s calc(100 - l));
@@ -20,6 +20,7 @@
 
     --color-background: hsl(from var(--theme-primary) h s 98%);
     --color-background-notice: hsl(from var(--theme-primary) h s 94%);
+    --color-background-hover: hsl(from var(--theme-primary) h s l / 0.1);
     --color-text: hsl(from var(--theme-primary) h s 2%);
 }
 
@@ -39,4 +40,19 @@ h1 {
 
 .icon {
     stroke: var(--color-primary);
+}
+
+.header {
+    display: grid;
+    grid-template-rows: max-content max-content;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 1em;
+}
+.header-sub {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

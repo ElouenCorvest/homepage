@@ -90,7 +90,6 @@
         <p>This CV can be directly downloaded or printed.</p>
         <DownloadButton onclick={triggerPrint}/>
     </div>
-    
 </div>
 
 

@@ -39,5 +39,5 @@ Object.entries(combinations_3c).forEach(([comboId, colorArray]) => {
 
 })
 
-fs.writeFileSync('./src/lib/assets/sanzo-palettes.css', cssOutput);
-fs.writeFileSync('./src/lib/assets/sanzo-palettes.json', JSON.stringify(Object.keys(combinations_3c).map(id => `sanzo${id}`), null, 2));
+fs.writeFileSync('./src/lib/assets/sanzo-3-palettes.css', cssOutput);
+fs.writeFileSync('./src/lib/assets/sanzo-3-palettes.json', JSON.stringify(Object.keys(combinations_3c).map(id => `sanzo${id}`), null, 2));
