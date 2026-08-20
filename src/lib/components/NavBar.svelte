@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { resolve } from '$app/paths';
     import { page } from '$app/state';
     import CustomSelect from '$lib/components/CustomSelect.svelte';
     import faviconSvg from '$lib/assets/favicon.svg?raw';
@@ -69,9 +70,9 @@
 
     <CustomSelect bind:value={currentTheme} options={themeOptions} onchange={selectTheme} />
 
-    <a href="/" class="nav-link" class:active={page.url.pathname === '/'}>Home</a>
-    <a href="/cv" class="nav-link" class:active={page.url.pathname.startsWith('/cv')}>CV</a>
-    <a href="/sanzowada" class="nav-link" class:active={page.url.pathname.startsWith('/sanzowada')}>Sanzo Wada Collection</a>
+    <a href="{resolve('/')}" class="nav-link" class:active={page.url.pathname === '/'}>Home</a>
+    <a href="{resolve('/cv')}" class="nav-link" class:active={page.url.pathname.startsWith('/cv')}>CV</a>
+    <a href="{resolve('/sanzowada')}" class="nav-link" class:active={page.url.pathname.startsWith('/sanzowada')}>Sanzo Wada Collection</a>
 </nav>
 
 <style>
