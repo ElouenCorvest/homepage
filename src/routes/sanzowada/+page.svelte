@@ -1,7 +1,8 @@
 <script lang="ts">
     import themeIds from '$lib/assets/sanzo-3-palettes.json';
     import CustomSelect from '$lib/components/CustomSelect.svelte';
-    import { ArrowLeftRight, House, Inbox, Newspaper, Pause, Heart, CirclePlus, SkipForward, Angry, Frown, Meh, Smile, SmilePlus } from 'lucide-svelte';
+    import ToggleButton from '$lib/components/ToggleButton.svelte';
+    import { ArrowLeftRight, House, Inbox, Newspaper, Pause, Heart, CirclePlus, SkipForward, Angry, Frown, Meh, Smile} from 'lucide-svelte';
 
     function getTimeAgo(dateString) {
         const pastDate = new Date(dateString);
@@ -37,6 +38,14 @@
         };
     }
 
+    function formatWeight(weightInKg, isLbs) {
+        if (isLbs) {
+            return (weightInKg * 2.20462).toFixed(1) + ' lbs';
+        } else {
+            return weightInKg.toFixed(1) + ' kg';
+        }
+    }
+
     // This grabs the data returned from the +page.server.ts file
     let { data } = $props();
 
@@ -49,11 +58,13 @@
     let trackProgress = formatDuration(topTrackDurationMs * trackPercentage / 100);
 
     let hevyLastWorkout = data.hevyLastWorkout;
-    console.log('hevyLastWorkout:', hevyLastWorkout.exercises[0]);
+    console.log('hevyLastWorkout:', hevyLastWorkout.exercises[0].sets[0].weight_kg);
     let hevyLastWorkoutTitle = hevyLastWorkout ? hevyLastWorkout.title : 'No last workout found';
     let hevyLastWorkoutDate = hevyLastWorkout ? new Date(hevyLastWorkout.start_time).toLocaleDateString("de-DE") : 'No last workout found';
     let hevyLastWorkoutDiff = hevyLastWorkout ? getTimeAgo(hevyLastWorkout.start_time) : null;
     let hevyLastWorkoutExercises = hevyLastWorkout ? hevyLastWorkout.exercises : [];
+
+    let isLbs = $state(true);
 
     function formatDuration(ms) {
         const minutes = Math.floor(ms / 60000);
@@ -159,15 +170,15 @@
                         <div class="mock-audio-player-header">
                             <div class="mock-audio-player-text">
                                 <p class="mock-song-title notice-text">{topTrackTitle}</p>
-                                <p class="mock-song-artist">{topTrackArtist}</p>
+                                <p class="mock-song-artist back-text">{topTrackArtist}</p>
                             </div>
                             <Heart class="big-icon"/>
                             <CirclePlus class="big-icon"/>
                         </div>
                         <div class="mock-audio-player-bar">
-                            <p>{trackProgress}</p>
+                            <p class="back-text">{trackProgress}</p>
                             <span class="mock-audio-player-bar-progress" style:--progress="{trackPercentage}%"></span>
-                            <p>{topTrackDurationFormatted}</p>
+                            <p class="back-text">{topTrackDurationFormatted}</p>
                         </div>
                         <div class="mock-audio-player-controls">
                             <SkipForward class="big-icon" style="rotate: 180deg;"/>
@@ -185,6 +196,15 @@
                                 <p>Last Workout:</p>
                                 <p class="notice-text">{hevyLastWorkoutTitle}</p>
                             </div>
+                            <ToggleButton bind:checked={isLbs}>
+                                {#snippet left()}
+                                    <p class="bold">Kg</p>
+                                {/snippet}
+                                
+                                {#snippet right()}
+                                    <p class="bold">Lbs</p>
+                                {/snippet}
+                            </ToggleButton>
                             {#if hevyLastWorkoutDiff?.years > 0}
                                 <Angry class="big-icon"/>
                             {:else if hevyLastWorkoutDiff?.months > 1}
@@ -200,20 +220,24 @@
                             </div>
                         </div>
                         <div class="mock-gym-history-exercises">
-                            {#each hevyLastWorkoutExercises as exercise}
+                            {#each hevyLastWorkoutExercises as exercise (exercise.exercise_template_id)}
                                 <div class="mock-gym-history-exercise">
-                                    <p>{exercise.title}</p>
-                                    <p>Sets</p>
-                                    {#each exercise.sets as set}
-                                        <div class="mock-gym-history-set">
+                                    <p class="notice-text">{exercise.title}</p>
+                                    <div class="mock-gym-history-set">
+                                        <p class="left-align back-text">Set</p>
+                                        <p class="center-align back-text">Weight</p>
+                                        <p class="center-align back-text">Reps</p>
+                                        {#each exercise.sets as set, index (index)}
                                             {#if set.type === "warmup"}
-                                                <p>W</p>
+                                                <p class="bold left-align">W</p>
                                             {:else}
-                                                <p>{set.index + 1}</p>
+                                                <p class="bold left-align">{exercise.sets.slice(0, index + 1).filter(s => s.type !== 'warmup').length}</p>
                                             {/if}
-                                            <p>{set.weigth_kg}</p>
-                                        </div>
-                                    {/each}
+                                            
+                                            <p class="center-align">{formatWeight(set.weight_kg, isLbs)}</p>
+                                            <p class="center-align" >{set.reps}</p>
+                                        {/each}
+                                    </div>
                                 </div>
                             {/each}
                         </div>
@@ -317,10 +341,6 @@
         display: flex;
         flex-direction: column;
         margin-right: auto;
-
-        > :last-child {
-            font-size: 0.9rem;
-        }
     }
 
     :global(.big-icon) {
@@ -335,14 +355,6 @@
         align-items: center;
         justify-items: center;
         gap: 0.5rem;
-
-        > :first-child {
-            font-size: 0.9rem;
-        }
-
-        > :last-child {
-            font-size: 0.9rem;
-        }
     }
 
     .mock-audio-player-bar-progress {
@@ -386,6 +398,7 @@
         justify-content: space-between;
         align-items: center;
         gap: 0.5rem;
+        margin-bottom: 1rem;
 
         > :first-child {
             margin-right: auto;
@@ -394,6 +407,24 @@
     .two-row-text {
         display: flex;
         flex-direction: column;
+    }
+
+    .mock-gym-history-exercises {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .mock-gym-history-exercise {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .mock-gym-history-set {
+        display: grid;
+        grid-template-columns: 1fr max-content max-content;
+        align-items: center;
+        gap: 0.5rem;
     }
 
 </style>

@@ -1,8 +1,17 @@
 <script lang="ts">
+    import type { Snippet } from 'svelte'; // 1. Import the Snippet type
+
     // Use $bindable so the parent page can read and change the toggle state
     let { 
-        checked = $bindable(false),
-        label = "" 
+        checked = $bindable(true),
+        label = "",
+        left,
+        right
+    }: {
+        checked?: boolean;
+        label?: string;
+        left?: Snippet; // 2. Type them as snippets!
+        right?: Snippet;
     } = $props();
 
     function handleToggle() {
@@ -15,6 +24,10 @@
         <span class="toggle-label">{label}</span>
     {/if}
     
+    {#if left}
+        {@render left()} <!-- 3. Add parentheses () -->
+    {/if}
+
     <button 
         type="button" 
         role="switch" 
@@ -25,6 +38,10 @@
     >
         <span class="toggle-thumb"></span>
     </button>
+
+    {#if right}
+        {@render right()}
+    {/if}
 </label>
 
 <style>

@@ -41,6 +41,19 @@ h1 {
 .notice-text {
     font-weight: bold;
     font-size: 1.2rem;
+    color: var(--color-accent);
+}
+
+.back-text {
+    font-size: 0.9rem;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.center-align {
+    text-align: center;
 }
 
 .icon {

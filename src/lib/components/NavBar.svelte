@@ -61,11 +61,15 @@
         {@html faviconSvg}
     </a>
 
-    <div class="visual-switch">
-        <SunMedium size={24} class="icon"/>
-        <ToggleButton bind:checked={isDarkMode}/>
-        <MoonStar size={24} class="icon"/>
-    </div>
+    <ToggleButton bind:checked={isDarkMode}>
+        {#snippet left()}
+            <SunMedium size={24} class='icon'/>
+        {/snippet}
+        
+        {#snippet right()}
+            <MoonStar size={24} class="icon"/>
+        {/snippet}
+    </ToggleButton>
    
 
     <CustomSelect bind:value={currentTheme} options={themeOptions} onchange={selectTheme} />
