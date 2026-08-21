@@ -1,5 +1,5 @@
 // src/routes/sanzowada/+page.server.ts
-import { HEVY_API_KEY, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } from '$env/static/private';
+import { HEVY_API_KEY, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN, TMDB_API_KEY } from '$env/static/private';
 
 // Helper to get a fresh Access Token using your permanent Refresh Token
 async function getAccessToken() {
@@ -40,12 +40,27 @@ export async function load() {
         }
     });
 
+    // TMDB
+    const tmdbRes = await fetch('https://api.themoviedb.org/3/trending/movie/week?language=en-US', {
+        method: 'GET', // Standard practice is to capitalize HTTP methods
+        headers: {
+            "Authorization": 'Bearer ' + TMDB_API_KEY
+        }
+    });
+
     const rawText = await hevyRes.text();
     const hevyData = JSON.parse(rawText)
     const hevyLastWorkout = hevyData.workouts[0]
+    const tmdbData = await tmdbRes.json();
+    const tmdbTrendingMovies = tmdbData.results || null;
+    const topFiveMovies = tmdbTrendingMovies
+        .sort((a, b) => b.popularity - a.popularity)
+        .slice(0, 5);
+    console.log(topFiveMovies)
     
     return {
         topTrack: topTrack,
-        hevyLastWorkout: hevyLastWorkout
+        hevyLastWorkout: hevyLastWorkout,
+        topFiveMovies: topFiveMovies
     };
 }

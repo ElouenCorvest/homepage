@@ -2,7 +2,8 @@
     import themeIds from '$lib/assets/sanzo-3-palettes.json';
     import CustomSelect from '$lib/components/CustomSelect.svelte';
     import ToggleButton from '$lib/components/ToggleButton.svelte';
-    import { ArrowLeftRight, House, Inbox, Newspaper, Pause, Heart, CirclePlus, SkipForward, Angry, Frown, Meh, Smile} from 'lucide-svelte';
+    import Rating from '$lib/components/Rating.svelte';
+    import { ArrowLeftRight, House, Inbox, Newspaper, Pause, Heart, CirclePlus, SkipForward, Angry, Frown, Meh, Smile, Star} from 'lucide-svelte';
 
     function getTimeAgo(dateString) {
         const pastDate = new Date(dateString);
@@ -242,7 +243,26 @@
                             {/each}
                         </div>
                     </div>
+                    <div class="mock-movie-recomendations card">
+                    <h3>Top 5 Trending Movies</h3>
+                        {#each data.topFiveMovies as movie (movie.id)}
+                            <div class="mock-movie-recomendation">
+                                <img 
+                                    src="https://image.tmdb.org/t/p/w200{movie.poster_path}" 
+                                    alt={movie.title} 
+                                    class="mock-movie-poster"
+                                />
+                                <div class="mock-movie-recomendation-text">
+                                    <p class="notice-text">{movie.title}</p>
+                                    <p class="back-text">Release Date: {movie.release_date}</p>
+                                    <span><Star class="icon"/>{movie.vote_average.toFixed(1)}/10</span>
+                                    <p class="back-text">{movie.overview}</p>
+                                </div>
+                            </div>
+                        {/each}
+                    </div>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -393,6 +413,11 @@
         border-radius: 50%;
     }
 
+    .mock-content-row {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 1rem;
+    }
     .mock-gym-history-header {
         display: flex;
         justify-content: space-between;
@@ -425,6 +450,36 @@
         grid-template-columns: 1fr max-content max-content;
         align-items: center;
         gap: 0.5rem;
+    }
+
+    .mock-movie-recomendations {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .mock-movie-recomendation {
+        display:flex;
+        align-items: center;
+        gap: 1rem;
+
+        > img {
+            width: auto;
+            height: 15rem;
+            border-radius: 0.5rem;
+        }
+
+    }
+
+    .mock-movie-recomendation-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    
+        > span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
     }
 
 </style>

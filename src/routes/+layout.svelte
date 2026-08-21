@@ -30,7 +30,7 @@
 	.content {
 		flex: 1;
 		width: 100%;
-		max-width: 1200px;
+		max-width: 1500px;
 		margin: 0 auto;
 		padding: 2rem;
 	}
