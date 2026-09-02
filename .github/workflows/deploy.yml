@@ -32,6 +32,8 @@ jobs:
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+          HEVY_API_KEY: ${{ secrets.HEVY_API_KEY }}
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: npm run build
 
       - name: Upload Artifacts
