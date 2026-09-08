@@ -5,10 +5,12 @@
     import faviconSvg from '$lib/assets/favicon.svg?raw';
     import ToggleButton from '$lib/components/ToggleButton.svelte';
     import { MoonStar, SunMedium } from 'lucide-svelte';
-    import themeIds from '$lib/assets/sanzo-3-palettes.json';
+    import themeIds from '$lib/assets/elouensthemes.json';
+    console.log('themeIds', themeIds);
 
     function buildThemeLabel(themeId: string): string {
-        const label = themeId.charAt(0).toUpperCase() + themeId.slice(1);
+        const themeTitle = themeId.split('-').at(-1);
+        const label = themeTitle ? themeTitle.charAt(0).toUpperCase() + themeTitle.slice(1) : themeId;
         return `
             <span class="theme-option-label">
                 <span>${label}</span>

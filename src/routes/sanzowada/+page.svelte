@@ -59,7 +59,6 @@
     let trackProgress = formatDuration(topTrackDurationMs * trackPercentage / 100);
 
     let hevyLastWorkout = data.hevyLastWorkout;
-    console.log('hevyLastWorkout:', hevyLastWorkout.exercises[0].sets[0].weight_kg);
     let hevyLastWorkoutTitle = hevyLastWorkout ? hevyLastWorkout.title : 'No last workout found';
     let hevyLastWorkoutDate = hevyLastWorkout ? new Date(hevyLastWorkout.start_time).toLocaleDateString("de-DE") : 'No last workout found';
     let hevyLastWorkoutDiff = hevyLastWorkout ? getTimeAgo(hevyLastWorkout.start_time) : null;

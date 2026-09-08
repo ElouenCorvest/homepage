@@ -56,7 +56,6 @@ export async function load() {
     const topFiveMovies = tmdbTrendingMovies
         .sort((a, b) => b.popularity - a.popularity)
         .slice(0, 5);
-    console.log(topFiveMovies)
     
     return {
         topTrack: topTrack,

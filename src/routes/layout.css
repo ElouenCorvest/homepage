@@ -2,6 +2,7 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 @import "../../src/lib/assets/sanzo-3-palettes.css";
+@import "../../src/lib/assets/elouensthemes.css";
 
 :root, [visual-theme="dark"] {
     --color-primary: hsl(from var(--theme-primary) h s calc(100 - l));
