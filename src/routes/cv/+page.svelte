@@ -5,6 +5,17 @@
     import Github from '$lib/components/icons/Github.svelte';
     import Rating from '$lib/components/Rating.svelte';
     import DownloadButton from '$lib/components/DownloadButton.svelte';
+    import CustomSelect from '$lib/components/CustomSelect.svelte';
+
+    import en from '$lib/locales/en.json';
+    import de from '$lib/locales/de.json';
+
+    const dict = { en, de };
+
+    let currentLang = $state('en');
+    let t = $derived(dict[currentLang as keyof typeof dict]);
+
+    let currentCV = $state('scientific');
 
     import { onMount } from 'svelte';
     let { orcidId = '0009-0006-3796-9343' } = $props();
@@ -85,21 +96,50 @@
 </script>
 
 <div class=header>
-    <h1>Curriculum Vitae</h1>
-    <div class="header-sub">
-        <p>This CV can be directly downloaded or printed.</p>
-        <DownloadButton onclick={triggerPrint}/>
-    </div>
+    <h1 style="grid-area: title;">Curriculum Vitae</h1>
+    <p style="grid-area: subtitle;">This CV can be directly downloaded or printed.</p>
+    <CustomSelect bind:value={currentLang} options={[{id: 'en', label: 'English'}, {id: "de", label: "Deutsch"}]} style="grid-area: langSelect;"/>
+    <CustomSelect bind:value={currentCV} options={[{id: 'scientific', label: 'Scientific'}, {id: 'industry', label: 'Industry'}]} style="grid-area: cvSelect;"/>
+    <DownloadButton onclick={triggerPrint} style="grid-area: download; width: 100%"/>
 </div>
 
+{#snippet education()}
+    <div class="cv-section">
+        <h1>{t.higherEd}</h1>
+        <div class="cv-education">
+            <p><strong>M. Sc.</strong><br/>{t.inBiology}<br/></p>
+            <p>{t.msDesc}</p>
+            <div class="cv-education-date">
+                <div class="cv-header-point">
+                    <Calendar class="cv-header-icon"/><span>2022 - 2026</span>
+                </div>
+                <div class="cv-header-point">
+                    <MapPinned class="cv-header-icon"/><span>RWTH, Aachen</span>
+                </div>
+            </div>
+        </div>
+        <div class="cv-education">
+            <p><strong>B. Sc.</strong><br/>{t.inBiology}<br/></p>
+            <p>{t.bsDesc}</p>
+            <div class="cv-education-date">
+                <div class="cv-header-point">
+                    <Calendar class="cv-header-icon"/><span>2019 - 2022</span>
+                </div>
+                <div class="cv-header-point">
+                    <MapPinned class="cv-header-icon"/><span>RWTH, Aachen</span>
+                </div>
+            </div>
+        </div>
+    </div>
+{/snippet}
 
-<div class="cv-document">
+<div class="cv-document {currentLang}">
     <div class="cv-header">
         <div class="cv-header-info">
             <img src={profilePic} alt="Elouen Corvest"/>
             <div class="cv-header-text">
                 <h1>Elouen Corvest</h1>
-                <h2>M. Sc of Biology from the RWTH Aachen</h2>
+                <h2>{t.subtitle}</h2>
                 <div class="cv-header-points">
                     <div class="cv-header-point">
                         <Cake class="cv-header-icon"/>
@@ -139,35 +179,11 @@
             
     </div>
     <div class="cv-left cv-col">
-        <div class="cv-section">
-            <h1>Higher Education</h1>
-            <div class="cv-education">
-                <p><strong>M. Sc.</strong><br/>in Biology<br/></p>
-                <p>Honing skills in plant physiology and computational biology</p>
-                <div class="cv-education-date">
-                    <div class="cv-header-point">
-                        <Calendar class="cv-header-icon"/><span>2022 - 2026</span>
-                    </div>
-                    <div class="cv-header-point">
-                        <MapPinned class="cv-header-icon"/><span>RWTH, Aachen</span>
-                    </div>
-                </div>
-            </div>
-            <div class="cv-education">
-                <p><strong>B. Sc.</strong><br/>in Biology<br/></p>
-                <p>Basic training in biological studies</p>
-                <div class="cv-education-date">
-                    <div class="cv-header-point">
-                        <Calendar class="cv-header-icon"/><span>2019 - 2022</span>
-                    </div>
-                    <div class="cv-header-point">
-                        <MapPinned class="cv-header-icon"/><span>RWTH, Aachen</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {#if (currentCV === 'scientific')}
+            {@render education()}
+        {/if}
         <div class="cv-section publication-list">
-            <h1>Written Work</h1>
+            <h1>{t.writtenWork}</h1>
             {#if loading}
                 <p>Loading...</p>
             {:else if error}
@@ -178,15 +194,15 @@
                     <a class:sepline={i !== publications.length - 1} href={publication.doiUrl} target="_blank">{publication.doiUrl}</a>
                 {/each}
             {:else}
-                <p>No publications to display.</p>
+                <p>{t.noPublications}</p>
             {/if}
         </div>
         <div class="cv-section">
-            <h1>Work Experience</h1>
+            <h1>{t.workExp}</h1>
             <div class="cv-experience">
                 <div>
-                    <strong>Consultant for GreenSloth:</strong>
-                    <p>Consultant for design, development, and publishing of the GreenSloth project</p>
+                    <strong>{t.consulGreensloth}:</strong>
+                    <p>{t.consulGreenslothDesc}</p>
                 </div>
                 <div class="cv-education-date">
                     <div class="cv-header-point">
@@ -199,8 +215,8 @@
             </div>
             <div class="cv-experience">
                 <div>
-                    <strong>Research Assistant at AG Töpfer:</strong>
-                    <p>Implementation of flux-balance analysis models to simulate plant-growth and refininf existing code</p>
+                    <strong>{t.researchAssistant}:</strong>
+                    <p>{t.researchAssistantDesc}</p>
                 </div>
                 <div class="cv-education-date">
                     <div class="cv-header-point">
@@ -213,8 +229,8 @@
             </div>
             <div class="cv-experience">
                 <div>
-                    <strong>Teaching Assistant:</strong>
-                    <p>Preparation of teaching rooms using Moodle; Theoritical tutorial on physical chemistry; Practical course in plant physiology and botanical theory; Grading and examination</p>
+                    <strong>{t.teachingAssistant}:</strong>
+                    <p>{t.teachingAssistantDesc}</p>
                 </div>
                 <div class="cv-education-date">
                     <div class="cv-header-point">
@@ -229,32 +245,32 @@
     </div>
     <div class="cv-right cv-col">
         <div class="cv-section">
-            <h1>Languages</h1>
+            <h1>{t.languages}</h1>
             <div class="cv-rating cols-3">
-                <p>English</p>
+                <p>{t.english}</p>
                 <p>C2*</p>
                 <Rating score={6} maxScore={6} size="16px" />
             </div>
             <div class="cv-rating cols-3">
-                <p>French</p>
+                <p>{t.french}</p>
                 <p>C1*</p>
                 <Rating score={5} maxScore={6} size="16px" />
             </div>
             <div class="cv-rating cols-3">
-                <p>German</p>
+                <p>{t.german}</p>
                 <p>C1*</p>
                 <Rating score={5} maxScore={6} size="16px" />
             </div>
-            <p class="cv-footer">*Using CEFR rating for language proficiency</p>
+            <p class="cv-footer">*{t.cefrRating}</p>
         </div>
         <div class="cv-section">
-            <h1>IT-Skills</h1>
+            <h1>{t.itSkills}</h1>
             <div class="cv-rating cols-2">
                 <p>Python</p>
                 <Rating score={4} maxScore={5} size="16px" />
             </div>
             <div class="cv-rating sepline cols-2">
-                <p>Web Development</p>
+                <p>{t.webDev}</p>
                 <Rating score={3} maxScore={5} size="16px" />
             </div>
             <div class="cv-rating cols-2">
@@ -266,21 +282,21 @@
                 <Rating score={3} maxScore={5} size="16px" />
             </div>
             <div class="cv-rating cols-2">
-                <p>Raster Graphics</p>
+                <p>{t.rasterGraphics}</p>
                 <Rating score={3} maxScore={5} size="16px" />
             </div>
             <div class="cv-rating cols-2">
-                <p>Vector Graphics</p>
+                <p>{t.vectorGraphics}</p>
                 <Rating score={4} maxScore={5} size="16px" />
             </div>
         </div>
         <div class="cv-section">
-            <h1>Certifications</h1>
-            <p><strong>Driver's License:</strong> AM/B/L/A</p>
-            <p><strong>Poster Award (2024):</strong><br/> Second European Congress of Photosynthesis Research</p>
+            <h1>{t.certifications}</h1>
+            <p><strong>{t.driversLicense}:</strong> AM/B/L/A</p>
+            <p><strong>{t.posterAward} (2024):</strong><br/> Second European Congress of Photosynthesis Research</p>
         </div>
         <div class="cv-section">
-            <h1>Referees</h1>
+            <h1>{t.referees}</h1>
             <p><strong>Prof. Dr. rer. nat. Anna Matuszyńska</strong><br/>Computational Life Sciences<br/>RWTH Aachen<br/></p>
             <div class="cv-header-point">
                 <Mail class="cv-header-icon"/><span>anna.matuszynska@rwth-aachen.de</span>
@@ -296,7 +312,10 @@
 
     .header {
         display: grid;
-        grid-template-rows: max-content max-content;
+        grid-template-areas:
+            "title title langSelect cvSelect"
+            "subtitle subtitle download download";
+        gap: 0.5em;
         align-items: center;
         width: 100%;
         max-width: 800px;
@@ -304,11 +323,18 @@
         padding-bottom: 1em;
     }
 
-    .header-sub {
+    .header-controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        margin-left: auto;
+    }
+
+    .header-select {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        gap: 1em;
     }
 
     .cv-document {
@@ -328,6 +354,10 @@
         background-image: url('/paper_texture.svg');
         background-color: rgba(255, 255, 255, 0.8);
         background-blend-mode: screen;
+    }
+
+    .cv-document.de {
+        font-size: 0.88rem;
     }
 
     .cv-header {

@@ -6,7 +6,6 @@
     import ToggleButton from '$lib/components/ToggleButton.svelte';
     import { MoonStar, SunMedium } from 'lucide-svelte';
     import themeIds from '$lib/assets/elouensthemes.json';
-    console.log('themeIds', themeIds);
 
     function buildThemeLabel(themeId: string): string {
         const themeTitle = themeId.split('-').at(-1);
@@ -21,7 +20,7 @@
         `;
     }
 
-    let currentTheme = $state(themeIds[0]);
+    let currentTheme = $state('elouensthemes-red1');
 
     let themeOptions =
         themeIds

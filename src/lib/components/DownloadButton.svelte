@@ -3,12 +3,13 @@
 
     let { 
         onclick = () => {},
+        ...restProps
     }: { 
         onclick?: () => void;
     } = $props();
 </script>
 
-<button class="download-btn" onclick={onclick}>
+<button class="download-btn" onclick={onclick} {...restProps}>
     <Download size={16}/><span>Download</span>
 </button>
 
@@ -18,6 +19,7 @@
         flex-direction: row;
         gap: 0.5rem;
         align-items: center;
+        justify-content: center;
         background-color: var(--color-primary);
         color: white;
         border: none;

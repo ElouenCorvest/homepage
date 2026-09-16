@@ -10,7 +10,8 @@
     let {
         options = [],
         value = $bindable(''),
-        onchange = () => {}
+        onchange = () => {},
+        ...restProps
     } = $props();
 
     let isOpen = $state(false);
@@ -49,8 +50,8 @@
 
 <svelte:window onclick={handleWindowClick} />
 
-<div class="custom-select" bind:this={containerRef}>
-    <button type="button" class="trigger" onclick={() => (isOpen = !isOpen)}>
+<div class="custom-select" bind:this={containerRef} {...restProps}>
+    <button type="button" class="trigger bold" onclick={() => (isOpen = !isOpen)}>
         <span>{@html selectedOption.label}</span>
         <ChevronDown size={16} />
     </button>
