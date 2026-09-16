@@ -102,29 +102,33 @@
                 <h2>M. Sc of Biology from the RWTH Aachen</h2>
                 <div class="cv-header-points">
                     <div class="cv-header-point">
-                        <Cake size={16} class="cv-header-icon"/><span>19.06.2000</span>
+                        <Cake class="cv-header-icon"/>
+                        <p>19.06.2000</p>
                     </div>
                     <div class="cv-header-point">
-                        <Mail size={16} class="cv-header-icon"/><span>elouen.corvest@protonmail.com</span>
+                        <Mail class="cv-header-icon"/>
+                        <p>elouen.corvest@protonmail.com</p>
                     </div>
                     <div class="cv-header-point">
-                        <Phone size={16} class="cv-header-icon"/><span>+4917672888102</span>
+                        <Phone class="cv-header-icon"/>
+                        <p>+4917672888102</p>
                     </div>
                     <div class="cv-header-point">
-                        <MapPinned size={16} class="cv-header-icon"/><span>Cologne, Germany</span>
+                        <MapPinned class="cv-header-icon"/>
+                        <p>Cologne, Germany</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="cv-header-links">
-            <a href="" target="_blank" class="cv-header-point">
-                <House size={16} class="cv-header-icon"/><span>Home</span>
+            <a href="https://elouencorvest.github.io/homepage/" target="_blank" class="cv-header-point">
+                <House class="cv-header-icon"/><span>elouencorvest.github.io/homepage/</span>
             </a>
             <a href="https://www.linkedin.com/in/elouen-corvest/" target="_blank" class="cv-header-point">
-                <Linkedin size={16} class="cv-header-icon"/><span>linkedin.com/in/elouen-corvest</span>
+                <Linkedin class="cv-header-icon"/><span>linkedin.com/in/elouen-corvest</span>
             </a>
             <a href="https://github.com/ElouenCorvest" target="_blank" class="cv-header-point">
-                <Github size={16} class="cv-header-icon"/><span>github.com/ElouenCorvest</span>
+                <Github class="cv-header-icon"/><span>github.com/ElouenCorvest</span>
             </a>
         </div>
         <div class="cv-header-quote">
@@ -142,10 +146,10 @@
                 <p>Honing skills in plant physiology and computational biology</p>
                 <div class="cv-education-date">
                     <div class="cv-header-point">
-                        <Calendar size={16} class="cv-header-icon"/><span>2022 - 2026</span>
+                        <Calendar class="cv-header-icon"/><span>2022 - 2026</span>
                     </div>
                     <div class="cv-header-point">
-                        <MapPinned size={16} class="cv-header-icon"/><span>RWTH, Aachen</span>
+                        <MapPinned class="cv-header-icon"/><span>RWTH, Aachen</span>
                     </div>
                 </div>
             </div>
@@ -154,10 +158,10 @@
                 <p>Basic training in biological studies</p>
                 <div class="cv-education-date">
                     <div class="cv-header-point">
-                        <Calendar size={16} class="cv-header-icon"/><span>2019 - 2022</span>
+                        <Calendar class="cv-header-icon"/><span>2019 - 2022</span>
                     </div>
                     <div class="cv-header-point">
-                        <MapPinned size={16} class="cv-header-icon"/><span>RWTH, Aachen</span>
+                        <MapPinned class="cv-header-icon"/><span>RWTH, Aachen</span>
                     </div>
                 </div>
             </div>
@@ -186,10 +190,10 @@
                 </div>
                 <div class="cv-education-date">
                     <div class="cv-header-point">
-                        <Calendar size={16} class="cv-header-icon"/><span>2026</span>
+                        <Calendar class="cv-header-icon"/><span>2026</span>
                     </div>
                     <div class="cv-header-point">
-                        <MapPinned size={16} class="cv-header-icon"/><span>RWTH, Aachen</span>
+                        <MapPinned class="cv-header-icon"/><span>RWTH, Aachen</span>
                     </div>
                 </div>
             </div>
@@ -200,10 +204,10 @@
                 </div>
                 <div class="cv-education-date">
                     <div class="cv-header-point">
-                        <Calendar size={16} class="cv-header-icon"/><span>2024</span>
+                        <Calendar class="cv-header-icon"/><span>2024</span>
                     </div>
                     <div class="cv-header-point">
-                        <MapPinned size={16} class="cv-header-icon"/><span>Uni. of Cologne</span>
+                        <MapPinned class="cv-header-icon"/><span>Uni. of Cologne</span>
                     </div>
                 </div>
             </div>
@@ -214,10 +218,10 @@
                 </div>
                 <div class="cv-education-date">
                     <div class="cv-header-point">
-                        <Calendar size={16} class="cv-header-icon"/><span>2022-2024</span>
+                        <Calendar class="cv-header-icon"/><span>2022-2024</span>
                     </div>
                     <div class="cv-header-point">
-                        <MapPinned size={16} class="cv-header-icon"/><span>RWTH Aachen</span>
+                        <MapPinned class="cv-header-icon"/><span>RWTH Aachen</span>
                     </div>
                 </div>
             </div>
@@ -279,10 +283,10 @@
             <h1>Referees</h1>
             <p><strong>Prof. Dr. rer. nat. Anna Matuszyńska</strong><br/>Computational Life Sciences<br/>RWTH Aachen<br/></p>
             <div class="cv-header-point">
-                <Mail size={16} class="cv-header-icon"/><span>anna.matuszynska@rwth-aachen.de</span>
+                <Mail class="cv-header-icon"/><span>anna.matuszynska@rwth-aachen.de</span>
             </div>
             <div class="cv-header-point">
-                <MapPinned size={16} class="cv-header-icon"/><span>Worringerweg 1, 52074 Aachen, Germany</span>
+                <MapPinned class="cv-header-icon"/><span>Worringerweg 1, 52074 Aachen, Germany</span>
             </div>
         </div>
     </div>
@@ -377,11 +381,16 @@
     .cv-header-point {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: baseline;
         gap: 0.5em;
+        text-align: left;
+        font-size: 1em;
     }
 
     :global(.cv-header-icon) {
+        width: auto;
+        height: 1.5cap;
+        transform: translateY(20%);
         stroke: var(--color-primary);
     }
 
@@ -400,7 +409,7 @@
         flex-direction: row;
         gap: 1em;
         justify-content: center;
-        color: var(--color-secondary);
+        color: var(--color-accent);
         background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
         border-radius: 0.5em;
         border: 5px solid var(--color-primary);
@@ -488,7 +497,7 @@
 
     .cv-footer {
         font-size: 0.75em;
-        color: var(--color-secondary);
+        color: var(--color-accent);
         margin-top: 0.5em;
     }
 
