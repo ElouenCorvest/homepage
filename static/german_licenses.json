@@ -1,0 +1,2823 @@
+{
+  "A": {
+    "longform": "Augsburg",
+    "bundesland": "Bayern"
+  },
+  "AA": {
+    "longform": "Ostalbkreis (Aalen)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "AB": {
+    "longform": "Aschaffenburg",
+    "bundesland": "Bayern"
+  },
+  "ABG": {
+    "longform": "Altenburger Land",
+    "bundesland": "Thüringen"
+  },
+  "ABI": {
+    "longform": "Anhalt-Bitterfeld",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "AC": {
+    "longform": "Aachen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "AE": {
+    "longform": "Auerbach",
+    "bundesland": "Sachsen"
+  },
+  "AH": {
+    "longform": "Ahaus",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "AIB": {
+    "longform": "Bad Aibling",
+    "bundesland": "Bayern"
+  },
+  "AIC": {
+    "longform": "Aichach-Friedberg",
+    "bundesland": "Bayern"
+  },
+  "AK": {
+    "longform": "Altenkirchen",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "ALF": {
+    "longform": "Alfeld (Leine)",
+    "bundesland": "Niedersachsen"
+  },
+  "ALZ": {
+    "longform": "Alzenau",
+    "bundesland": "Bayern"
+  },
+  "AM": {
+    "longform": "Amberg",
+    "bundesland": "Bayern"
+  },
+  "AN": {
+    "longform": "Ansbach",
+    "bundesland": "Bayern"
+  },
+  "ANA": {
+    "longform": "Annaberg",
+    "bundesland": "Sachsen"
+  },
+  "ANG": {
+    "longform": "Angermünde",
+    "bundesland": "Brandenburg"
+  },
+  "ANK": {
+    "longform": "Anklam",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "AÖ": {
+    "longform": "Altötting",
+    "bundesland": "Bayern"
+  },
+  "AP": {
+    "longform": "Weimarer Land (Apolda)",
+    "bundesland": "Thüringen"
+  },
+  "APD": {
+    "longform": "Apolda",
+    "bundesland": "Thüringen"
+  },
+  "ARN": {
+    "longform": "Arnstadt",
+    "bundesland": "Thüringen"
+  },
+  "ART": {
+    "longform": "Artern",
+    "bundesland": "Thüringen"
+  },
+  "AS": {
+    "longform": "Amberg-Sulzbach",
+    "bundesland": "Bayern"
+  },
+  "ASL": {
+    "longform": "Aschersleben-Staßfurt",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "ASZ": {
+    "longform": "Aue-Schwarzenberg",
+    "bundesland": "Sachsen"
+  },
+  "AT": {
+    "longform": "Altentreptow",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "AU": {
+    "longform": "Aue",
+    "bundesland": "Sachsen"
+  },
+  "AUR": {
+    "longform": "Aurich",
+    "bundesland": "Niedersachsen"
+  },
+  "AW": {
+    "longform": "Ahrweiler",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "AZ": {
+    "longform": "Alzey-Worms",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "AZE": {
+    "longform": "Anhalt-Zerbst",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "B": {
+    "longform": "Berlin",
+    "bundesland": "Berlin"
+  },
+  "BA": {
+    "longform": "Bamberg",
+    "bundesland": "Bayern"
+  },
+  "BAD": {
+    "longform": "Baden-Baden",
+    "bundesland": "Baden-Württemberg"
+  },
+  "BAR": {
+    "longform": "Barnim",
+    "bundesland": "Brandenburg"
+  },
+  "BB": {
+    "longform": "Böblingen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "BBG": {
+    "longform": "Bernburg",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "BC": {
+    "longform": "Biberach",
+    "bundesland": "Baden-Württemberg"
+  },
+  "BCH": {
+    "longform": "Buchen (Odenwald)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "BE": {
+    "longform": "Beckum",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "BED": {
+    "longform": "Brand-Erbisdorf",
+    "bundesland": "Sachsen"
+  },
+  "BER": {
+    "longform": "Bernau",
+    "bundesland": "Brandenburg"
+  },
+  "BF": {
+    "longform": "Burgsteinfurt",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "BGD": {
+    "longform": "Berchtesgaden",
+    "bundesland": "Bayern"
+  },
+  "BGL": {
+    "longform": "Berchtesgadener Land",
+    "bundesland": "Bayern"
+  },
+  "BH": {
+    "longform": "Bühl",
+    "bundesland": "Baden-Württemberg"
+  },
+  "BI": {
+    "longform": "Bielefeld",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "BID": {
+    "longform": "Biedenkopf",
+    "bundesland": "Hessen"
+  },
+  "BIN": {
+    "longform": "Bingen am Rhein",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "BIR": {
+    "longform": "Birkenfeld",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "BIT": {
+    "longform": "Bitburg-Prüm (Eifelkreis)",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "BIW": {
+    "longform": "Bischofswerda",
+    "bundesland": "Sachsen"
+  },
+  "BK": {
+    "longform": "Backnang / Landkreis Börde",
+    "bundesland": "Baden-Württemberg"
+  },
+  "BKS": {
+    "longform": "Bernkastel-Kues",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "BL": {
+    "longform": "Zollernalbkreis (Balingen)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "BLB": {
+    "longform": "Berleburg",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "BLK": {
+    "longform": "Burgenlandkreis",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "BM": {
+    "longform": "Rhein-Erft-Kreis (Bergheim)",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "BN": {
+    "longform": "Bonn",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "BNA": {
+    "longform": "Borna",
+    "bundesland": "Sachsen"
+  },
+  "BO": {
+    "longform": "Bochum",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "BÖ": {
+    "longform": "Bördekreis",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "BOG": {
+    "longform": "Bogen",
+    "bundesland": "Bayern"
+  },
+  "BOH": {
+    "longform": "Bocholt",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "BOR": {
+    "longform": "Borken",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "BOT": {
+    "longform": "Bottrop",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "BRA": {
+    "longform": "Wesermarsch (Brake)",
+    "bundesland": "Niedersachsen"
+  },
+  "BRB": {
+    "longform": "Brandenburg",
+    "bundesland": "Brandenburg"
+  },
+  "BRG": {
+    "longform": "Burg",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "BRK": {
+    "longform": "Bad Brückenau",
+    "bundesland": "Bayern"
+  },
+  "BRL": {
+    "longform": "Blankenburg (Braunlage)",
+    "bundesland": "Niedersachsen"
+  },
+  "BRV": {
+    "longform": "Bremervörde",
+    "bundesland": "Niedersachsen"
+  },
+  "BS": {
+    "longform": "Braunschweig",
+    "bundesland": "Niedersachsen"
+  },
+  "BSB": {
+    "longform": "Bersenbrück",
+    "bundesland": "Niedersachsen"
+  },
+  "BSK": {
+    "longform": "Beeskow",
+    "bundesland": "Brandenburg"
+  },
+  "BT": {
+    "longform": "Bayreuth",
+    "bundesland": "Bayern"
+  },
+  "BTF": {
+    "longform": "Bitterfeld",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "BÜD": {
+    "longform": "Büdingen",
+    "bundesland": "Hessen"
+  },
+  "BÜR": {
+    "longform": "Büren",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "BÜS": {
+    "longform": "Büsingen (Konstanz)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "BÜZ": {
+    "longform": "Bützow",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "BUL": {
+    "longform": "Burglengenfeld",
+    "bundesland": "Bayern"
+  },
+  "BZ": {
+    "longform": "Bautzen",
+    "bundesland": "Sachsen"
+  },
+  "C": {
+    "longform": "Chemnitz",
+    "bundesland": "Sachsen"
+  },
+  "CA": {
+    "longform": "Calau",
+    "bundesland": "Brandenburg"
+  },
+  "CAS": {
+    "longform": "Castrop-Rauxel",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "CB": {
+    "longform": "Cottbus",
+    "bundesland": "Brandenburg"
+  },
+  "CE": {
+    "longform": "Celle",
+    "bundesland": "Niedersachsen"
+  },
+  "CHA": {
+    "longform": "Cham",
+    "bundesland": "Bayern"
+  },
+  "CLP": {
+    "longform": "Cloppenburg",
+    "bundesland": "Niedersachsen"
+  },
+  "CLZ": {
+    "longform": "Clausthal-Zellerfeld",
+    "bundesland": "Niedersachsen"
+  },
+  "CO": {
+    "longform": "Coburg",
+    "bundesland": "Bayern"
+  },
+  "COC": {
+    "longform": "Cochem-Zell",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "COE": {
+    "longform": "Coesfeld",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "CR": {
+    "longform": "Crailsheim",
+    "bundesland": "Baden-Württemberg"
+  },
+  "CUX": {
+    "longform": "Cuxhaven",
+    "bundesland": "Niedersachsen"
+  },
+  "CW": {
+    "longform": "Calw",
+    "bundesland": "Baden-Württemberg"
+  },
+  "D": {
+    "longform": "Düsseldorf",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "DA": {
+    "longform": "Darmstadt",
+    "bundesland": "Hessen"
+  },
+  "DAH": {
+    "longform": "Dachau",
+    "bundesland": "Bayern"
+  },
+  "DAN": {
+    "longform": "Lüchow-Dannenberg",
+    "bundesland": "Niedersachsen"
+  },
+  "DAU": {
+    "longform": "Daun",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "DBR": {
+    "longform": "Bad Doberan",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "DD": {
+    "longform": "Dresden",
+    "bundesland": "Sachsen"
+  },
+  "DE": {
+    "longform": "Dessau-Roßlau",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "DEG": {
+    "longform": "Deggendorf",
+    "bundesland": "Bayern"
+  },
+  "DEL": {
+    "longform": "Delmenhorst",
+    "bundesland": "Niedersachsen"
+  },
+  "DGF": {
+    "longform": "Dingolfing-Landau",
+    "bundesland": "Bayern"
+  },
+  "DH": {
+    "longform": "Diepholz",
+    "bundesland": "Niedersachsen"
+  },
+  "DI": {
+    "longform": "Dieburg",
+    "bundesland": "Hessen"
+  },
+  "DIL": {
+    "longform": "Dillkreis (Dillenburg)",
+    "bundesland": "Hessen"
+  },
+  "DIN": {
+    "longform": "Dinslaken",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "DIZ": {
+    "longform": "Diez",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "DKB": {
+    "longform": "Dinkelsbühl",
+    "bundesland": "Bayern"
+  },
+  "DL": {
+    "longform": "Döbeln",
+    "bundesland": "Sachsen"
+  },
+  "DLG": {
+    "longform": "Dillingen a.d. Donau",
+    "bundesland": "Bayern"
+  },
+  "DM": {
+    "longform": "Demmin",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "DN": {
+    "longform": "Düren",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "DO": {
+    "longform": "Dortmund",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "DON": {
+    "longform": "Donau-Ries (Donauwörth)",
+    "bundesland": "Bayern"
+  },
+  "DU": {
+    "longform": "Duisburg",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "DUD": {
+    "longform": "Duderstadt",
+    "bundesland": "Niedersachsen"
+  },
+  "DÜW": {
+    "longform": "Bad Dürkheim",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "DW": {
+    "longform": "Dippoldiswalde",
+    "bundesland": "Sachsen"
+  },
+  "DZ": {
+    "longform": "Delitzsch",
+    "bundesland": "Sachsen"
+  },
+  "E": {
+    "longform": "Essen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "EA": {
+    "longform": "Eisenach",
+    "bundesland": "Thüringen"
+  },
+  "EB": {
+    "longform": "Eilenburg",
+    "bundesland": "Sachsen"
+  },
+  "EBE": {
+    "longform": "Ebersberg",
+    "bundesland": "Bayern"
+  },
+  "EBN": {
+    "longform": "Ebern",
+    "bundesland": "Bayern"
+  },
+  "EBS": {
+    "longform": "Ebermannstadt",
+    "bundesland": "Bayern"
+  },
+  "ECK": {
+    "longform": "Eckernförde",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "ED": {
+    "longform": "Erding",
+    "bundesland": "Bayern"
+  },
+  "EE": {
+    "longform": "Elbe-Elster",
+    "bundesland": "Brandenburg"
+  },
+  "EF": {
+    "longform": "Erfurt",
+    "bundesland": "Thüringen"
+  },
+  "EG": {
+    "longform": "Eggenfelden",
+    "bundesland": "Bayern"
+  },
+  "EH": {
+    "longform": "Eisenhüttenstadt",
+    "bundesland": "Brandenburg"
+  },
+  "EI": {
+    "longform": "Eichstätt",
+    "bundesland": "Bayern"
+  },
+  "EIC": {
+    "longform": "Eichsfeld",
+    "bundesland": "Thüringen"
+  },
+  "EIL": {
+    "longform": "Eisleben",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "EIN": {
+    "longform": "Einbeck",
+    "bundesland": "Niedersachsen"
+  },
+  "EIS": {
+    "longform": "Eisenberg",
+    "bundesland": "Thüringen"
+  },
+  "EL": {
+    "longform": "Emsland",
+    "bundesland": "Niedersachsen"
+  },
+  "EM": {
+    "longform": "Emmendingen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "EMD": {
+    "longform": "Emden",
+    "bundesland": "Niedersachsen"
+  },
+  "EMS": {
+    "longform": "Rhein-Lahn-Kreis (Bad Ems)",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "EN": {
+    "longform": "Ennepe-Ruhr-Kreis",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "ER": {
+    "longform": "Erlangen",
+    "bundesland": "Bayern"
+  },
+  "ERB": {
+    "longform": "Odenwaldkreis (Erbach)",
+    "bundesland": "Hessen"
+  },
+  "ERH": {
+    "longform": "Erlangen-Höchstadt",
+    "bundesland": "Bayern"
+  },
+  "ERK": {
+    "longform": "Erkelenz",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "ERZ": {
+    "longform": "Erzgebirgskreis",
+    "bundesland": "Sachsen"
+  },
+  "ES": {
+    "longform": "Esslingen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "ESB": {
+    "longform": "Eschenbach in der Oberpfalz",
+    "bundesland": "Bayern"
+  },
+  "ESW": {
+    "longform": "Werra-Meißner-Kreis (Eschwege)",
+    "bundesland": "Hessen"
+  },
+  "EU": {
+    "longform": "Euskirchen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "EW": {
+    "longform": "Eberswalde",
+    "bundesland": "Brandenburg"
+  },
+  "F": {
+    "longform": "Frankfurt am Main",
+    "bundesland": "Hessen"
+  },
+  "FB": {
+    "longform": "Wetteraukreis (Friedberg)",
+    "bundesland": "Hessen"
+  },
+  "FD": {
+    "longform": "Fulda",
+    "bundesland": "Hessen"
+  },
+  "FDB": {
+    "longform": "Friedberg",
+    "bundesland": "Bayern"
+  },
+  "FDS": {
+    "longform": "Freudenstadt",
+    "bundesland": "Baden-Württemberg"
+  },
+  "FEU": {
+    "longform": "Feuchtwangen",
+    "bundesland": "Bayern"
+  },
+  "FF": {
+    "longform": "Frankfurt (Oder)",
+    "bundesland": "Brandenburg"
+  },
+  "FFB": {
+    "longform": "Fürstenfeldbruck",
+    "bundesland": "Bayern"
+  },
+  "FG": {
+    "longform": "Mittelsachsen (Freiberg)",
+    "bundesland": "Sachsen"
+  },
+  "FI": {
+    "longform": "Finsterwalde",
+    "bundesland": "Brandenburg"
+  },
+  "FKB": {
+    "longform": "Frankenberg (Eder)",
+    "bundesland": "Hessen"
+  },
+  "FL": {
+    "longform": "Flensburg",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "FLÖ": {
+    "longform": "Flöha",
+    "bundesland": "Sachsen"
+  },
+  "FN": {
+    "longform": "Bodenseekreis (Friedrichshafen)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "FO": {
+    "longform": "Forchheim",
+    "bundesland": "Bayern"
+  },
+  "FOR": {
+    "longform": "Forst",
+    "bundesland": "Brandenburg"
+  },
+  "FR": {
+    "longform": "Freiburg im Breisgau",
+    "bundesland": "Baden-Württemberg"
+  },
+  "FRG": {
+    "longform": "Freyung-Grafenau",
+    "bundesland": "Bayern"
+  },
+  "FRI": {
+    "longform": "Friesland",
+    "bundesland": "Niedersachsen"
+  },
+  "FRW": {
+    "longform": "Bad Freienwalde",
+    "bundesland": "Brandenburg"
+  },
+  "FS": {
+    "longform": "Freising",
+    "bundesland": "Bayern"
+  },
+  "FT": {
+    "longform": "Frankenthal",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "FTL": {
+    "longform": "Freital",
+    "bundesland": "Sachsen"
+  },
+  "FÜ": {
+    "longform": "Fürth",
+    "bundesland": "Bayern"
+  },
+  "FÜS": {
+    "longform": "Füssen",
+    "bundesland": "Bayern"
+  },
+  "FW": {
+    "longform": "Fürstenwalde",
+    "bundesland": "Brandenburg"
+  },
+  "FZ": {
+    "longform": "Fritzlar-Homberg",
+    "bundesland": "Hessen"
+  },
+  "G": {
+    "longform": "Gera",
+    "bundesland": "Thüringen"
+  },
+  "GA": {
+    "longform": "Gardelegen",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "GAN": {
+    "longform": "Bad Gandersheim",
+    "bundesland": "Niedersachsen"
+  },
+  "GAP": {
+    "longform": "Garmisch-Partenkirchen",
+    "bundesland": "Bayern"
+  },
+  "GC": {
+    "longform": "Glauchau",
+    "bundesland": "Sachsen"
+  },
+  "GD": {
+    "longform": "Schwäbisch Gmünd",
+    "bundesland": "Baden-Württemberg"
+  },
+  "GDB": {
+    "longform": "Gadebusch",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "GE": {
+    "longform": "Gelsenkirchen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "GEL": {
+    "longform": "Geldern",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "GEO": {
+    "longform": "Gerolzhofen",
+    "bundesland": "Bayern"
+  },
+  "GER": {
+    "longform": "Germersheim",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "GF": {
+    "longform": "Gifhorn",
+    "bundesland": "Niedersachsen"
+  },
+  "GG": {
+    "longform": "Groß-Gerau",
+    "bundesland": "Hessen"
+  },
+  "GHA": {
+    "longform": "Geithain",
+    "bundesland": "Sachsen"
+  },
+  "GHC": {
+    "longform": "Gräfenhainichen",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "GI": {
+    "longform": "Gießen",
+    "bundesland": "Hessen"
+  },
+  "GK": {
+    "longform": "Geilenkirchen-Heinsberg",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "GL": {
+    "longform": "Rheinisch-Bergischer Kreis (Bergisch Gladbach)",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "GLA": {
+    "longform": "Gladbeck",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "GM": {
+    "longform": "Oberbergischer Kreis (Gummersbach)",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "GMN": {
+    "longform": "Grimmen",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "GN": {
+    "longform": "Gelnhausen",
+    "bundesland": "Hessen"
+  },
+  "GNT": {
+    "longform": "Genthin",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "GOA": {
+    "longform": "Sankt Goar",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "GÖ": {
+    "longform": "Göttingen",
+    "bundesland": "Niedersachsen"
+  },
+  "GOH": {
+    "longform": "St. Goarshausen",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "GP": {
+    "longform": "Göppingen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "GR": {
+    "longform": "Görlitz",
+    "bundesland": "Sachsen"
+  },
+  "GRA": {
+    "longform": "Grafenau",
+    "bundesland": "Bayern"
+  },
+  "GRH": {
+    "longform": "Großenhain",
+    "bundesland": "Sachsen"
+  },
+  "GRI": {
+    "longform": "Bad Griesbach i. Rottal",
+    "bundesland": "Bayern"
+  },
+  "GRM": {
+    "longform": "Grimma",
+    "bundesland": "Sachsen"
+  },
+  "GRZ": {
+    "longform": "Greiz",
+    "bundesland": "Thüringen"
+  },
+  "GS": {
+    "longform": "Goslar",
+    "bundesland": "Niedersachsen"
+  },
+  "GT": {
+    "longform": "Gütersloh",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "GTH": {
+    "longform": "Gotha",
+    "bundesland": "Thüringen"
+  },
+  "GUB": {
+    "longform": "Guben",
+    "bundesland": "Brandenburg"
+  },
+  "GÜ": {
+    "longform": "Güstrow",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "GUN": {
+    "longform": "Gunzenhausen",
+    "bundesland": "Bayern"
+  },
+  "GV": {
+    "longform": "Grevenbroich",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "GVM": {
+    "longform": "Grevesmühlen",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "GW": {
+    "longform": "Vorpommern-Greifswald",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "GZ": {
+    "longform": "Günzburg",
+    "bundesland": "Bayern"
+  },
+  "H": {
+    "longform": "Hannover",
+    "bundesland": "Niedersachsen"
+  },
+  "HA": {
+    "longform": "Hagen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "HAB": {
+    "longform": "Hammelburg",
+    "bundesland": "Bayern"
+  },
+  "HAL": {
+    "longform": "Halle",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "HAM": {
+    "longform": "Hamm",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "HAS": {
+    "longform": "Haßberge (Haßfurt)",
+    "bundesland": "Bayern"
+  },
+  "HB": {
+    "longform": "Hansestadt Bremen",
+    "bundesland": "Freie Hansestadt Bremen"
+  },
+  "HBN": {
+    "longform": "Hildburghausen",
+    "bundesland": "Thüringen"
+  },
+  "HBS": {
+    "longform": "Halberstadt",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "HC": {
+    "longform": "Hainichen",
+    "bundesland": "Sachsen"
+  },
+  "HCH": {
+    "longform": "Hechingen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "HD": {
+    "longform": "Heidelberg",
+    "bundesland": "Baden-Württemberg"
+  },
+  "HDH": {
+    "longform": "Heidenheim (Brenz)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "HDL": {
+    "longform": "Haldensleben",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "HE": {
+    "longform": "Helmstedt",
+    "bundesland": "Niedersachsen"
+  },
+  "HEB": {
+    "longform": "Hersbruck",
+    "bundesland": "Bayern"
+  },
+  "HEF": {
+    "longform": "Hersfeld-Rotenburg",
+    "bundesland": "Hessen"
+  },
+  "HEI": {
+    "longform": "Dithmarschen (Heide)",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "HER": {
+    "longform": "Herne",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "HET": {
+    "longform": "Hettstedt",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "HF": {
+    "longform": "Herford",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "HG": {
+    "longform": "Hochtaunuskreis (Bad Homburg)",
+    "bundesland": "Hessen"
+  },
+  "HGN": {
+    "longform": "Hagenow",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "HGW": {
+    "longform": "Hansestadt Greifswald",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "HH": {
+    "longform": "Hansestadt Hamburg",
+    "bundesland": "Freie und Hansestadt Hamburg"
+  },
+  "HHM": {
+    "longform": "Hohenmölsen",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "HI": {
+    "longform": "Hildesheim",
+    "bundesland": "Niedersachsen"
+  },
+  "HIG": {
+    "longform": "Heiligenstadt",
+    "bundesland": "Thüringen"
+  },
+  "HIP": {
+    "longform": "Hilpoltstein",
+    "bundesland": "Bayern"
+  },
+  "HK": {
+    "longform": "Heidekreis",
+    "bundesland": "Niedersachsen"
+  },
+  "HL": {
+    "longform": "Hansestadt Lübeck",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "HM": {
+    "longform": "Hameln-Pyrmont",
+    "bundesland": "Niedersachsen"
+  },
+  "HMÜ": {
+    "longform": "Hann. Münden",
+    "bundesland": "Niedersachsen"
+  },
+  "HN": {
+    "longform": "Heilbronn",
+    "bundesland": "Baden-Württemberg"
+  },
+  "HO": {
+    "longform": "Hof",
+    "bundesland": "Bayern"
+  },
+  "HÖS": {
+    "longform": "Erlangen-Höchstadt",
+    "bundesland": "Bayern"
+  },
+  "HOG": {
+    "longform": "Hofgeismar",
+    "bundesland": "Hessen"
+  },
+  "HOH": {
+    "longform": "Hofheim in Unterfranken",
+    "bundesland": "Bayern"
+  },
+  "HOL": {
+    "longform": "Holzminden",
+    "bundesland": "Niedersachsen"
+  },
+  "HOM": {
+    "longform": "Saarpfalz-Kreis (Homburg)",
+    "bundesland": "Saarland"
+  },
+  "HOR": {
+    "longform": "Freudenstadt (Horb am Neckar)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "HOT": {
+    "longform": "Hohenstein-Ernstthal",
+    "bundesland": "Sachsen"
+  },
+  "HP": {
+    "longform": "Bergstraße (Heppenheim)",
+    "bundesland": "Hessen"
+  },
+  "HR": {
+    "longform": "Schwalm-Eder-Kreis (Homberg)",
+    "bundesland": "Hessen"
+  },
+  "HRO": {
+    "longform": "Hansestadt Rostock",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "HS": {
+    "longform": "Heinsberg",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "HSK": {
+    "longform": "Hochsauerlandkreis",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "HST": {
+    "longform": "Hansestadt Stralsund",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "HU": {
+    "longform": "Hanau",
+    "bundesland": "Hessen"
+  },
+  "HV": {
+    "longform": "Havelberg",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "HVL": {
+    "longform": "Havelland (Rathenow)",
+    "bundesland": "Brandenburg"
+  },
+  "HWI": {
+    "longform": "Hansestadt Wismar",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "HX": {
+    "longform": "Höxter",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "HY": {
+    "longform": "Hoyerswerda",
+    "bundesland": "Sachsen"
+  },
+  "HZ": {
+    "longform": "Landkreis Harz",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "IGB": {
+    "longform": "St. Ingbert",
+    "bundesland": "Saarland"
+  },
+  "IK": {
+    "longform": "Ilm-Kreis",
+    "bundesland": "Thüringen"
+  },
+  "IL": {
+    "longform": "Ilmenau",
+    "bundesland": "Thüringen"
+  },
+  "ILL": {
+    "longform": "Illertissen",
+    "bundesland": "Bayern"
+  },
+  "IN": {
+    "longform": "Ingolstadt",
+    "bundesland": "Bayern"
+  },
+  "IZ": {
+    "longform": "Steinburg (Itzehoe)",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "J": {
+    "longform": "Jena",
+    "bundesland": "Thüringen"
+  },
+  "JE": {
+    "longform": "Jessen",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "JL": {
+    "longform": "Jerichower Land",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "JÜL": {
+    "longform": "Jülich",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "K": {
+    "longform": "Köln",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "KA": {
+    "longform": "Karlsruhe",
+    "bundesland": "Baden-Württemberg"
+  },
+  "KB": {
+    "longform": "Waldeck-Frankenberg (Korbach)",
+    "bundesland": "Hessen"
+  },
+  "KC": {
+    "longform": "Kronach",
+    "bundesland": "Bayern"
+  },
+  "KE": {
+    "longform": "Kempten (Allgäu)",
+    "bundesland": "Bayern"
+  },
+  "KEH": {
+    "longform": "Kelheim",
+    "bundesland": "Bayern"
+  },
+  "KEL": {
+    "longform": "Kehl",
+    "bundesland": "Baden-Württemberg"
+  },
+  "KEM": {
+    "longform": "Kemnath",
+    "bundesland": "Bayern"
+  },
+  "KF": {
+    "longform": "Kaufbeuren",
+    "bundesland": "Bayern"
+  },
+  "KG": {
+    "longform": "Bad Kissingen",
+    "bundesland": "Bayern"
+  },
+  "KH": {
+    "longform": "Bad Kreuznach",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "KI": {
+    "longform": "Kiel",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "KIB": {
+    "longform": "Donnersbergkreis (Kirchheimbolanden)",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "KK": {
+    "longform": "Kempen-Krefeld",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "KL": {
+    "longform": "Kaiserslautern",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "KLE": {
+    "longform": "Kleve",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "KLZ": {
+    "longform": "Klötze",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "KM": {
+    "longform": "Kamenz",
+    "bundesland": "Sachsen"
+  },
+  "KN": {
+    "longform": "Konstanz",
+    "bundesland": "Baden-Württemberg"
+  },
+  "KO": {
+    "longform": "Koblenz",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "KÖN": {
+    "longform": "Bad Königshofen i. Grabfeld",
+    "bundesland": "Bayern"
+  },
+  "KÖT": {
+    "longform": "Köthen",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "KÖZ": {
+    "longform": "Kötzting",
+    "bundesland": "Bayern"
+  },
+  "KR": {
+    "longform": "Krefeld",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "KRU": {
+    "longform": "Krumbach",
+    "bundesland": "Bayern"
+  },
+  "KS": {
+    "longform": "Kassel",
+    "bundesland": "Hessen"
+  },
+  "KT": {
+    "longform": "Kitzingen",
+    "bundesland": "Bayern"
+  },
+  "KU": {
+    "longform": "Kulmbach",
+    "bundesland": "Bayern"
+  },
+  "KÜN": {
+    "longform": "Hohenlohekreis (Künzelsau)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "KUS": {
+    "longform": "Kusel",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "KW": {
+    "longform": "Königs Wusterhausen",
+    "bundesland": "Brandenburg"
+  },
+  "KY": {
+    "longform": "Kyritz",
+    "bundesland": "Brandenburg"
+  },
+  "KYF": {
+    "longform": "Kyffhäuserkreis",
+    "bundesland": "Thüringen"
+  },
+  "L": {
+    "longform": "Leipzig",
+    "bundesland": "Sachsen"
+  },
+  "LA": {
+    "longform": "Landshut",
+    "bundesland": "Bayern"
+  },
+  "LAN": {
+    "longform": "Dingolfing-Landau",
+    "bundesland": "Bayern"
+  },
+  "LAU": {
+    "longform": "Nürnberger Land (Lauf a.d. Pegnitz)",
+    "bundesland": "Bayern"
+  },
+  "LB": {
+    "longform": "Ludwigsburg",
+    "bundesland": "Baden-Württemberg"
+  },
+  "LBS": {
+    "longform": "Lobenstein",
+    "bundesland": "Thüringen"
+  },
+  "LBZ": {
+    "longform": "Lübz",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "LC": {
+    "longform": "Luckau",
+    "bundesland": "Brandenburg"
+  },
+  "LD": {
+    "longform": "Landau in der Pfalz",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "LDK": {
+    "longform": "Lahn-Dill-Kreis (Wetzlar)",
+    "bundesland": "Hessen"
+  },
+  "LDS": {
+    "longform": "Dahme-Spreewald",
+    "bundesland": "Brandenburg"
+  },
+  "LEO": {
+    "longform": "Leonberg (Württemberg)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "LER": {
+    "longform": "Leer (Ostfriesland)",
+    "bundesland": "Niedersachsen"
+  },
+  "LEV": {
+    "longform": "Leverkusen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "LF": {
+    "longform": "Laufen",
+    "bundesland": "Bayern"
+  },
+  "LG": {
+    "longform": "Lüneburg",
+    "bundesland": "Niedersachsen"
+  },
+  "LH": {
+    "longform": "Lüdinghausen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "LI": {
+    "longform": "Lindau (Bodensee)",
+    "bundesland": "Bayern"
+  },
+  "LIB": {
+    "longform": "Bad Liebenwerda",
+    "bundesland": "Brandenburg"
+  },
+  "LIF": {
+    "longform": "Lichtenfels",
+    "bundesland": "Bayern"
+  },
+  "LIP": {
+    "longform": "Lippe (Detmold)",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "LL": {
+    "longform": "Landsberg am Lech",
+    "bundesland": "Bayern"
+  },
+  "LM": {
+    "longform": "Limburg-Weilburg",
+    "bundesland": "Hessen"
+  },
+  "LN": {
+    "longform": "Lübben",
+    "bundesland": "Brandenburg"
+  },
+  "LÖ": {
+    "longform": "Lörrach",
+    "bundesland": "Baden-Württemberg"
+  },
+  "LÖB": {
+    "longform": "Löbau",
+    "bundesland": "Sachsen"
+  },
+  "LOS": {
+    "longform": "Oder-Spree",
+    "bundesland": "Brandenburg"
+  },
+  "LP": {
+    "longform": "Lippstadt",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "LR": {
+    "longform": "Lahr (Schwarzwald)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "LRO": {
+    "longform": "Landkreis Rostock",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "LSZ": {
+    "longform": "Bad Langensalza",
+    "bundesland": "Thüringen"
+  },
+  "LU": {
+    "longform": "Ludwigshafen am Rhein",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "LÜN": {
+    "longform": "Lünen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "LUP": {
+    "longform": "Ludwigslust-Parchim",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "LWL": {
+    "longform": "Ludwigslust",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "M": {
+    "longform": "München",
+    "bundesland": "Bayern"
+  },
+  "MA": {
+    "longform": "Mannheim",
+    "bundesland": "Baden-Württemberg"
+  },
+  "MAB": {
+    "longform": "Marienberg",
+    "bundesland": "Sachsen"
+  },
+  "MAI": {
+    "longform": "Mainburg",
+    "bundesland": "Bayern"
+  },
+  "MAK": {
+    "longform": "Marktredwitz",
+    "bundesland": "Bayern"
+  },
+  "MAL": {
+    "longform": "Mallersdorf",
+    "bundesland": "Bayern"
+  },
+  "MB": {
+    "longform": "Miesbach",
+    "bundesland": "Bayern"
+  },
+  "MC": {
+    "longform": "Malchin",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "MD": {
+    "longform": "Magdeburg",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "ME": {
+    "longform": "Mettmann",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "MED": {
+    "longform": "Süderdithmarschen (Meldorf/Holstein)",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "MEG": {
+    "longform": "Melsungen",
+    "bundesland": "Hessen"
+  },
+  "MEI": {
+    "longform": "Meißen",
+    "bundesland": "Sachsen"
+  },
+  "MEK": {
+    "longform": "Mittlerer Erzgebirgskreis",
+    "bundesland": "Sachsen"
+  },
+  "MEL": {
+    "longform": "Melle",
+    "bundesland": "Niedersachsen"
+  },
+  "MER": {
+    "longform": "Merseburg",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "MET": {
+    "longform": "Mellrichstadt",
+    "bundesland": "Bayern"
+  },
+  "MG": {
+    "longform": "Mönchengladbach",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "MGH": {
+    "longform": "Bad Mergentheim",
+    "bundesland": "Baden-Württemberg"
+  },
+  "MGN": {
+    "longform": "Meiningen",
+    "bundesland": "Thüringen"
+  },
+  "MH": {
+    "longform": "Mühlheim an der Ruhr",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "MHL": {
+    "longform": "Mühlhausen",
+    "bundesland": "Thüringen"
+  },
+  "MI": {
+    "longform": "Minden-Lübbecke",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "MIL": {
+    "longform": "Miltenberg",
+    "bundesland": "Bayern"
+  },
+  "MK": {
+    "longform": "Märkischer Kreis",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "MKK": {
+    "longform": "Main-Kinzig-Kreis",
+    "bundesland": "Hessen"
+  },
+  "ML": {
+    "longform": "Mansfelder Land",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "MM": {
+    "longform": "Memmingen",
+    "bundesland": "Bayern"
+  },
+  "MN": {
+    "longform": "Unterallgäu (Mindelheim)",
+    "bundesland": "Bayern"
+  },
+  "MO": {
+    "longform": "Moers",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "MOD": {
+    "longform": "Marktoberdorf",
+    "bundesland": "Bayern"
+  },
+  "MOL": {
+    "longform": "Märkisch-Oderland",
+    "bundesland": "Brandenburg"
+  },
+  "MON": {
+    "longform": "Monschau",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "MOS": {
+    "longform": "Neckar-Odenwald-Kreis (Mosbach)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "MQ": {
+    "longform": "Merseburg-Querfurt",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "MR": {
+    "longform": "Marburg-Biedenkopf",
+    "bundesland": "Hessen"
+  },
+  "MS": {
+    "longform": "Münster",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "MSE": {
+    "longform": "Mecklenburgische Seenplatte",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "MSH": {
+    "longform": "Mansfeld-Südharz",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "MSP": {
+    "longform": "Main-Spessart (Karlstadt)",
+    "bundesland": "Bayern"
+  },
+  "MST": {
+    "longform": "Mecklenburg-Strelitz",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "MTK": {
+    "longform": "Main-Taunus-Kreis",
+    "bundesland": "Hessen"
+  },
+  "MTL": {
+    "longform": "Muldentalkreis",
+    "bundesland": "Sachsen"
+  },
+  "MÜ": {
+    "longform": "Mühldorf am Inn",
+    "bundesland": "Bayern"
+  },
+  "MÜB": {
+    "longform": "Münchberg",
+    "bundesland": "Bayern"
+  },
+  "MÜL": {
+    "longform": "Müllheim",
+    "bundesland": "Baden-Württemberg"
+  },
+  "MÜR": {
+    "longform": "Müritz",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "MW": {
+    "longform": "Mittweida",
+    "bundesland": "Sachsen"
+  },
+  "MY": {
+    "longform": "Mayen",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "MYK": {
+    "longform": "Mayen-Koblenz",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "MZ": {
+    "longform": "Mainz, Mainz-Bingen",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "MZG": {
+    "longform": "Merzig-Wadern",
+    "bundesland": "Saarland"
+  },
+  "N": {
+    "longform": "Nürnberg",
+    "bundesland": "Bayern"
+  },
+  "NAB": {
+    "longform": "Nabburg",
+    "bundesland": "Bayern"
+  },
+  "NAI": {
+    "longform": "Naila",
+    "bundesland": "Bayern"
+  },
+  "NAU": {
+    "longform": "Nauen",
+    "bundesland": "Brandenburg"
+  },
+  "NB": {
+    "longform": "Neubrandenburg",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "ND": {
+    "longform": "Neuburg-Schrobenhausen",
+    "bundesland": "Bayern"
+  },
+  "NDH": {
+    "longform": "Nordhausen",
+    "bundesland": "Thüringen"
+  },
+  "NE": {
+    "longform": "Neuss",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "NEA": {
+    "longform": "Neustadt an der Aisch-Bad Windsheim",
+    "bundesland": "Bayern"
+  },
+  "NEB": {
+    "longform": "Nebra",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "NEC": {
+    "longform": "Neustadt b. Coburg",
+    "bundesland": "Bayern"
+  },
+  "NEN": {
+    "longform": "Neunburg vorm Wald",
+    "bundesland": "Bayern"
+  },
+  "NES": {
+    "longform": "Rhön-Grabfeld (Bad Neustadt a.d. Saale)",
+    "bundesland": "Bayern"
+  },
+  "NEU": {
+    "longform": "Hochschwarzwald (Titisee-Neustadt)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "NEW": {
+    "longform": "Neustadt an der Waldnaab",
+    "bundesland": "Bayern"
+  },
+  "NF": {
+    "longform": "Nordfriesland (Husum)",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "NH": {
+    "longform": "Neuhaus",
+    "bundesland": "Thüringen"
+  },
+  "NI": {
+    "longform": "Nienburg (Weser)",
+    "bundesland": "Niedersachsen"
+  },
+  "NK": {
+    "longform": "Neunkirchen (Saar)",
+    "bundesland": "Saarland"
+  },
+  "NM": {
+    "longform": "Neumarkt in der Oberpfalz",
+    "bundesland": "Bayern"
+  },
+  "NMB": {
+    "longform": "Naumburg",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "NMS": {
+    "longform": "Neumünster",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "NÖ": {
+    "longform": "Nördlingen",
+    "bundesland": "Bayern"
+  },
+  "NOH": {
+    "longform": "Grafschaft Bentheim (Nordhorn)",
+    "bundesland": "Niedersachsen"
+  },
+  "NOL": {
+    "longform": "Niederschlesischer Oberlausitzkreis",
+    "bundesland": "Sachsen"
+  },
+  "NOM": {
+    "longform": "Northeim",
+    "bundesland": "Niedersachsen"
+  },
+  "NOR": {
+    "longform": "Norden",
+    "bundesland": "Niedersachsen"
+  },
+  "NP": {
+    "longform": "Neuruppin",
+    "bundesland": "Brandenburg"
+  },
+  "NR": {
+    "longform": "Neuwied",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "NT": {
+    "longform": "Nürtingen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "NU": {
+    "longform": "Neu-Ulm",
+    "bundesland": "Bayern"
+  },
+  "NVP": {
+    "longform": "Nordvorpommern",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "NW": {
+    "longform": "Neustadt an der Weinstraße",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "NWM": {
+    "longform": "Nordwestmecklenburg",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "NY": {
+    "longform": "Niesky",
+    "bundesland": "Sachsen"
+  },
+  "NZ": {
+    "longform": "Neustrelitz",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "OA": {
+    "longform": "Oberallgäu",
+    "bundesland": "Bayern"
+  },
+  "OAL": {
+    "longform": "Ostallgäu",
+    "bundesland": "Bayern"
+  },
+  "OB": {
+    "longform": "Oberhausen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "OBB": {
+    "longform": "Obernburg a. Main",
+    "bundesland": "Bayern"
+  },
+  "OBG": {
+    "longform": "Osterburg",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "OC": {
+    "longform": "Oschersleben",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "OCH": {
+    "longform": "Ochsenfurt",
+    "bundesland": "Bayern"
+  },
+  "OD": {
+    "longform": "Stormarn (Bad Oldesloe)",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "OE": {
+    "longform": "Olpe",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "ÖHR": {
+    "longform": "Öhringen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "OF": {
+    "longform": "Offenbach am Main",
+    "bundesland": "Hessen"
+  },
+  "OG": {
+    "longform": "Ortenaukreis (Offenburg)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "OH": {
+    "longform": "Ostholstein",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "OHA": {
+    "longform": "Osterode am Harz",
+    "bundesland": "Niedersachsen"
+  },
+  "OHV": {
+    "longform": "Oberhavel",
+    "bundesland": "Brandenburg"
+  },
+  "OHZ": {
+    "longform": "Osterholz",
+    "bundesland": "Niedersachsen"
+  },
+  "OK": {
+    "longform": "Ohrekreis",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "OL": {
+    "longform": "Oldenburg",
+    "bundesland": "Niedersachsen"
+  },
+  "OP": {
+    "longform": "Rhein-Wupper-Kreis (Opladen)",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "OPR": {
+    "longform": "Ostprignitz-Ruppin",
+    "bundesland": "Brandenburg"
+  },
+  "OS": {
+    "longform": "Osnabrück",
+    "bundesland": "Niedersachsen"
+  },
+  "OSL": {
+    "longform": "Oberspreewald-Lausitz",
+    "bundesland": "Brandenburg"
+  },
+  "OTW": {
+    "longform": "Ottweiler",
+    "bundesland": "Saarland"
+  },
+  "OVI": {
+    "longform": "Oberviechtach",
+    "bundesland": "Bayern"
+  },
+  "OVL": {
+    "longform": "Obervogtland",
+    "bundesland": "Sachsen"
+  },
+  "OVP": {
+    "longform": "Ostvorpommern",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "OZ": {
+    "longform": "Oschatz",
+    "bundesland": "Sachsen"
+  },
+  "P": {
+    "longform": "Potsdam",
+    "bundesland": "Brandenburg"
+  },
+  "PA": {
+    "longform": "Passau",
+    "bundesland": "Bayern"
+  },
+  "PAF": {
+    "longform": "Pfaffenhofen a.d. Ilm",
+    "bundesland": "Bayern"
+  },
+  "PAN": {
+    "longform": "Rottal-Inn (Pfarrkirchen)",
+    "bundesland": "Bayern"
+  },
+  "PAR": {
+    "longform": "Parsberg",
+    "bundesland": "Bayern"
+  },
+  "PB": {
+    "longform": "Paderborn",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "PCH": {
+    "longform": "Parchim",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "PE": {
+    "longform": "Peine",
+    "bundesland": "Niedersachsen"
+  },
+  "PEG": {
+    "longform": "Pegnitz",
+    "bundesland": "Bayern"
+  },
+  "PF": {
+    "longform": "Pforzheim",
+    "bundesland": "Baden-Württemberg"
+  },
+  "PI": {
+    "longform": "Pinneberg",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "PIR": {
+    "longform": "Sächsische Schweiz-Osterzgebirge (Pirna)",
+    "bundesland": "Sachsen"
+  },
+  "PL": {
+    "longform": "Plauen",
+    "bundesland": "Sachsen"
+  },
+  "PLÖ": {
+    "longform": "Plön",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "PM": {
+    "longform": "Potsdam-Mittelmark",
+    "bundesland": "Brandenburg"
+  },
+  "PN": {
+    "longform": "Pößneck",
+    "bundesland": "Thüringen"
+  },
+  "PR": {
+    "longform": "Prignitz (Perleberg)",
+    "bundesland": "Brandenburg"
+  },
+  "PRÜ": {
+    "longform": "Prüm",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "PS": {
+    "longform": "Pirmasens",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "PW": {
+    "longform": "Pasewalk",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "PZ": {
+    "longform": "Prenzlau",
+    "bundesland": "Brandenburg"
+  },
+  "QFT": {
+    "longform": "Querfurt",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "QLB": {
+    "longform": "Quedlinburg",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "R": {
+    "longform": "Regensburg",
+    "bundesland": "Bayern"
+  },
+  "RA": {
+    "longform": "Rastatt",
+    "bundesland": "Baden-Württemberg"
+  },
+  "RC": {
+    "longform": "Reichenbach",
+    "bundesland": "Sachsen"
+  },
+  "RD": {
+    "longform": "Rendsburg-Eckernförde",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "RDG": {
+    "longform": "Ribnitz-Damgarten",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "RE": {
+    "longform": "Recklinghausen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "REG": {
+    "longform": "Regen",
+    "bundesland": "Bayern"
+  },
+  "REH": {
+    "longform": "Rehau",
+    "bundesland": "Bayern"
+  },
+  "REI": {
+    "longform": "Bad Reichenhall",
+    "bundesland": "Bayern"
+  },
+  "RG": {
+    "longform": "Riesa-Großenhain",
+    "bundesland": "Sachsen"
+  },
+  "RH": {
+    "longform": "Roth",
+    "bundesland": "Bayern"
+  },
+  "RI": {
+    "longform": "Rinteln",
+    "bundesland": "Niedersachsen"
+  },
+  "RID": {
+    "longform": "Riedenburg",
+    "bundesland": "Bayern"
+  },
+  "RIE": {
+    "longform": "Riesa",
+    "bundesland": "Sachsen"
+  },
+  "RL": {
+    "longform": "Rochlitz",
+    "bundesland": "Sachsen"
+  },
+  "RM": {
+    "longform": "Röbel (Müritz)",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "RN": {
+    "longform": "Rathenow",
+    "bundesland": "Brandenburg"
+  },
+  "RO": {
+    "longform": "Rosenheim",
+    "bundesland": "Bayern"
+  },
+  "ROD": {
+    "longform": "Roding",
+    "bundesland": "Bayern"
+  },
+  "ROF": {
+    "longform": "Rotenburg an der Fulda",
+    "bundesland": "Hessen"
+  },
+  "ROK": {
+    "longform": "Rockenhausen",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "ROL": {
+    "longform": "Rottenburg a.d. Laaber",
+    "bundesland": "Bayern"
+  },
+  "ROS": {
+    "longform": "Rostock",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "ROT": {
+    "longform": "Rothenburg o.d. Tauber",
+    "bundesland": "Bayern"
+  },
+  "ROW": {
+    "longform": "Rotenburg (Wümme)",
+    "bundesland": "Niedersachsen"
+  },
+  "RP": {
+    "longform": "Rhein-Pfalz-Kreis",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "RS": {
+    "longform": "Remscheid",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "RSL": {
+    "longform": "Roßlau",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "RT": {
+    "longform": "Reutlingen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "RU": {
+    "longform": "Rudolstadt",
+    "bundesland": "Thüringen"
+  },
+  "RÜD": {
+    "longform": "Rheingau-Taunus-Kreis",
+    "bundesland": "Hessen"
+  },
+  "RÜG": {
+    "longform": "Rügen",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "RV": {
+    "longform": "Ravensburg",
+    "bundesland": "Baden-Württemberg"
+  },
+  "RW": {
+    "longform": "Rottweil",
+    "bundesland": "Baden-Württemberg"
+  },
+  "RZ": {
+    "longform": "Herzogtum Lauenburg (Ratzeburg)",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "S": {
+    "longform": "Stuttgart",
+    "bundesland": "Baden-Württemberg"
+  },
+  "SAB": {
+    "longform": "Saarburg",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "SAD": {
+    "longform": "Schwandorf",
+    "bundesland": "Bayern"
+  },
+  "SÄK": {
+    "longform": "Säckingen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "SAN": {
+    "longform": "Stadtsteinach",
+    "bundesland": "Bayern"
+  },
+  "SAW": {
+    "longform": "Altmarkkreis Salzwedel",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "SB": {
+    "longform": "Saarbrücken",
+    "bundesland": "Saarland"
+  },
+  "SBG": {
+    "longform": "Strasburg",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "SBK": {
+    "longform": "Schönebeck",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "SC": {
+    "longform": "Schwabach",
+    "bundesland": "Bayern"
+  },
+  "SCZ": {
+    "longform": "Schleiz",
+    "bundesland": "Thüringen"
+  },
+  "SDH": {
+    "longform": "Sondershausen",
+    "bundesland": "Thüringen"
+  },
+  "SDL": {
+    "longform": "Stendal",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "SDT": {
+    "longform": "Schwedt (Oder)",
+    "bundesland": "Brandenburg"
+  },
+  "SE": {
+    "longform": "Segeberg",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "SEB": {
+    "longform": "Sebnitz",
+    "bundesland": "Sachsen"
+  },
+  "SEE": {
+    "longform": "Seelow",
+    "bundesland": "Brandenburg"
+  },
+  "SEF": {
+    "longform": "Scheinfeld",
+    "bundesland": "Bayern"
+  },
+  "SEL": {
+    "longform": "Selb",
+    "bundesland": "Bayern"
+  },
+  "SFB": {
+    "longform": "Senftenberg",
+    "bundesland": "Brandenburg"
+  },
+  "SFT": {
+    "longform": "Staßfurt",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "SG": {
+    "longform": "Solingen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "SGH": {
+    "longform": "Sangerhausen",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "SHA": {
+    "longform": "Schwäbisch Hall",
+    "bundesland": "Baden-Württemberg"
+  },
+  "SHG": {
+    "longform": "Schaumburg",
+    "bundesland": "Niedersachsen"
+  },
+  "SHK": {
+    "longform": "Saale-Holzland-Kreis",
+    "bundesland": "Thüringen"
+  },
+  "SHL": {
+    "longform": "Suhl",
+    "bundesland": "Thüringen"
+  },
+  "SI": {
+    "longform": "Siegen-Wittgenstein",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "SIG": {
+    "longform": "Sigmaringen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "SIM": {
+    "longform": "Rhein-Hunsrück-Kreis (Simmern)",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "SK": {
+    "longform": "Saalekreis",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "SL": {
+    "longform": "Schleswig-Flensburg",
+    "bundesland": "Schleswig-Holstein"
+  },
+  "SLE": {
+    "longform": "Schleiden",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "SLF": {
+    "longform": "Saalfeld-Rudolstadt",
+    "bundesland": "Thüringen"
+  },
+  "SLG": {
+    "longform": "Saulgau (Württemberg)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "SLK": {
+    "longform": "Salzlandkreis",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "SLN": {
+    "longform": "Schmölln",
+    "bundesland": "Thüringen"
+  },
+  "SLS": {
+    "longform": "Saarlouis",
+    "bundesland": "Saarland"
+  },
+  "SLÜ": {
+    "longform": "Schlüchtern",
+    "bundesland": "Hessen"
+  },
+  "SLZ": {
+    "longform": "Bad Salzungen",
+    "bundesland": "Thüringen"
+  },
+  "SM": {
+    "longform": "Schmalkalden-Meiningen",
+    "bundesland": "Thüringen"
+  },
+  "SMÜ": {
+    "longform": "Schwabmünchen",
+    "bundesland": "Bayern"
+  },
+  "SN": {
+    "longform": "Schwerin",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "SO": {
+    "longform": "Soest",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "SOB": {
+    "longform": "Schrobenhausen",
+    "bundesland": "Bayern"
+  },
+  "SÖM": {
+    "longform": "Sömmerda",
+    "bundesland": "Thüringen"
+  },
+  "SOG": {
+    "longform": "Schongau",
+    "bundesland": "Bayern"
+  },
+  "SOK": {
+    "longform": "Saale-Orla-Kreis (Schleiz)",
+    "bundesland": "Thüringen"
+  },
+  "SON": {
+    "longform": "Sonneberg",
+    "bundesland": "Thüringen"
+  },
+  "SP": {
+    "longform": "Speyer",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "SPB": {
+    "longform": "Spremberg",
+    "bundesland": "Brandenburg"
+  },
+  "SPN": {
+    "longform": "Spree-Neiße",
+    "bundesland": "Brandenburg"
+  },
+  "SR": {
+    "longform": "Straubing (-Bogen)",
+    "bundesland": "Bayern"
+  },
+  "SRB": {
+    "longform": "Strausberg",
+    "bundesland": "Brandenburg"
+  },
+  "SRO": {
+    "longform": "Stadtroda",
+    "bundesland": "Thüringen"
+  },
+  "ST": {
+    "longform": "Steinfurt",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "STA": {
+    "longform": "Starnberg",
+    "bundesland": "Bayern"
+  },
+  "STB": {
+    "longform": "Sternberg",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "STD": {
+    "longform": "Stade",
+    "bundesland": "Niedersachsen"
+  },
+  "STE": {
+    "longform": "Staffelstein",
+    "bundesland": "Bayern"
+  },
+  "STL": {
+    "longform": "Stollberg",
+    "bundesland": "Sachsen"
+  },
+  "STO": {
+    "longform": "Stockach",
+    "bundesland": "Baden-Württemberg"
+  },
+  "SU": {
+    "longform": "Rhein-Sieg-Kreis (Siegburg)",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "SÜW": {
+    "longform": "Südliche Weinstraße",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "SUL": {
+    "longform": "Sulzbach-Rosenberg",
+    "bundesland": "Bayern"
+  },
+  "SW": {
+    "longform": "Schweinfurt",
+    "bundesland": "Bayern"
+  },
+  "SWA": {
+    "longform": "Rheingau-Taunus-Kreis (Bad Schwalbach)",
+    "bundesland": "Hessen"
+  },
+  "SY": {
+    "longform": "Grafschaft Hoya (Syke)",
+    "bundesland": "Niedersachsen"
+  },
+  "SZ": {
+    "longform": "Salzgitter",
+    "bundesland": "Niedersachsen"
+  },
+  "SZB": {
+    "longform": "Schwarzenberg",
+    "bundesland": "Sachsen"
+  },
+  "TBB": {
+    "longform": "Main-Tauber-Kreis (Tauberbischofsheim)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "TDO": {
+    "longform": "Nordsachsen",
+    "bundesland": "Sachsen"
+  },
+  "TE": {
+    "longform": "Tecklenburg",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "TET": {
+    "longform": "Teterow",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "TF": {
+    "longform": "Teltow-Fläming",
+    "bundesland": "Brandenburg"
+  },
+  "TG": {
+    "longform": "Torgau",
+    "bundesland": "Sachsen"
+  },
+  "TIR": {
+    "longform": "Tirschenreuth",
+    "bundesland": "Bayern"
+  },
+  "TO": {
+    "longform": "Torgau-Oschatz",
+    "bundesland": "Sachsen"
+  },
+  "TÖL": {
+    "longform": "Bad Tölz-Wolfratshausen",
+    "bundesland": "Bayern"
+  },
+  "TP": {
+    "longform": "Templin",
+    "bundesland": "Brandenburg"
+  },
+  "TR": {
+    "longform": "Trier",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "TS": {
+    "longform": "Traunstein",
+    "bundesland": "Bayern"
+  },
+  "TT": {
+    "longform": "Tettnang (Württemberg)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "TÜ": {
+    "longform": "Tübingen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "TUT": {
+    "longform": "Tuttlingen",
+    "bundesland": "Baden-Württemberg"
+  },
+  "UE": {
+    "longform": "Uelzen",
+    "bundesland": "Niedersachsen"
+  },
+  "ÜB": {
+    "longform": "Überlingen am Bodensee",
+    "bundesland": "Baden-Württemberg"
+  },
+  "UEM": {
+    "longform": "Ueckermünde",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "UER": {
+    "longform": "Uecker-Randow",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "UFF": {
+    "longform": "Uffenheim",
+    "bundesland": "Bayern"
+  },
+  "UH": {
+    "longform": "Unstrut-Hainich-Kreis",
+    "bundesland": "Thüringen"
+  },
+  "UL": {
+    "longform": "Ulm",
+    "bundesland": "Baden-Württemberg"
+  },
+  "UM": {
+    "longform": "Uckermark",
+    "bundesland": "Brandenburg"
+  },
+  "UN": {
+    "longform": "Unna",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "USI": {
+    "longform": "Usingen",
+    "bundesland": "Hessen"
+  },
+  "V": {
+    "longform": "Vogtlandkreis",
+    "bundesland": "Sachsen"
+  },
+  "VAI": {
+    "longform": "Vaihingen an der Enz",
+    "bundesland": "Baden-Württemberg"
+  },
+  "VB": {
+    "longform": "Vogelsbergkreis",
+    "bundesland": "Hessen"
+  },
+  "VEC": {
+    "longform": "Vechta",
+    "bundesland": "Niedersachsen"
+  },
+  "VER": {
+    "longform": "Verden",
+    "bundesland": "Niedersachsen"
+  },
+  "VG": {
+    "longform": "Vorpommern-Greifswald",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "VIB": {
+    "longform": "Vilsbiburg",
+    "bundesland": "Bayern"
+  },
+  "VIE": {
+    "longform": "Viersen",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "VIT": {
+    "longform": "Viechtach",
+    "bundesland": "Bayern"
+  },
+  "VK": {
+    "longform": "Völklingen",
+    "bundesland": "Saarland"
+  },
+  "VOH": {
+    "longform": "Vohenstrauß",
+    "bundesland": "Bayern"
+  },
+  "VR": {
+    "longform": "Vorpommern-Rügen",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "VS": {
+    "longform": "Schwarzwald-Baar-Kreis (Villingen-Schwenningen)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "W": {
+    "longform": "Wuppertal",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "WA": {
+    "longform": "Waldeck",
+    "bundesland": "Hessen"
+  },
+  "WAF": {
+    "longform": "Warendorf",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "WAK": {
+    "longform": "Wartburgkreis",
+    "bundesland": "Thüringen"
+  },
+  "WAN": {
+    "longform": "Wanne-Eickel",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "WAR": {
+    "longform": "Warburg",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "WAT": {
+    "longform": "Wattenscheid",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "WB": {
+    "longform": "Wittenberg",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "WBS": {
+    "longform": "Worbis",
+    "bundesland": "Thüringen"
+  },
+  "WDA": {
+    "longform": "Werdau",
+    "bundesland": "Sachsen"
+  },
+  "WE": {
+    "longform": "Weimar",
+    "bundesland": "Thüringen"
+  },
+  "WEL": {
+    "longform": "Weilburg",
+    "bundesland": "Hessen"
+  },
+  "WEM": {
+    "longform": "Wesermünde (Bremerhaven)",
+    "bundesland": "Freie Hansestadt Bremen"
+  },
+  "WEN": {
+    "longform": "Weiden i. d. Oberpfalz",
+    "bundesland": "Bayern"
+  },
+  "WER": {
+    "longform": "Wertingen",
+    "bundesland": "Bayern"
+  },
+  "WES": {
+    "longform": "Wesel",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "WF": {
+    "longform": "Wolfenbüttel",
+    "bundesland": "Niedersachsen"
+  },
+  "WG": {
+    "longform": "Wangen im Allgäu",
+    "bundesland": "Baden-Württemberg"
+  },
+  "WHV": {
+    "longform": "Wilhelmshaven",
+    "bundesland": "Niedersachsen"
+  },
+  "WI": {
+    "longform": "Wiesbaden",
+    "bundesland": "Hessen"
+  },
+  "WIL": {
+    "longform": "Wittlich",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "WIS": {
+    "longform": "Wismar",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "WIT": {
+    "longform": "Witten",
+    "bundesland": "Nordrhein-Westfalen"
+  },
+  "WIZ": {
+    "longform": "Witzenhausen",
+    "bundesland": "Hessen"
+  },
+  "WK": {
+    "longform": "Wittstock",
+    "bundesland": "Brandenburg"
+  },
+  "WL": {
+    "longform": "Harburg (Winsen/Luhe)",
+    "bundesland": "Niedersachsen"
+  },
+  "WLG": {
+    "longform": "Wolgast",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "WM": {
+    "longform": "Weilheim-Schongau",
+    "bundesland": "Bayern"
+  },
+  "WMS": {
+    "longform": "Wolmirstedt",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "WN": {
+    "longform": "Rems-Murr-Kreis (Waiblingen)",
+    "bundesland": "Baden-Württemberg"
+  },
+  "WND": {
+    "longform": "St. Wendel",
+    "bundesland": "Saarland"
+  },
+  "WO": {
+    "longform": "Worms",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "WOB": {
+    "longform": "Wolfsburg",
+    "bundesland": "Niedersachsen"
+  },
+  "WOH": {
+    "longform": "Wolfhagen",
+    "bundesland": "Hessen"
+  },
+  "WOL": {
+    "longform": "Wolfach",
+    "bundesland": "Baden-Württemberg"
+  },
+  "WOR": {
+    "longform": "Wolfratshausen",
+    "bundesland": "Bayern"
+  },
+  "WOS": {
+    "longform": "Wolfstein",
+    "bundesland": "Bayern"
+  },
+  "WR": {
+    "longform": "Wernigerode",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "WRN": {
+    "longform": "Waren",
+    "bundesland": "Mecklenburg-Vorpommern"
+  },
+  "WS": {
+    "longform": "Wasserburg am Inn",
+    "bundesland": "Bayern"
+  },
+  "WSF": {
+    "longform": "Weißenfels",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "WST": {
+    "longform": "Ammerland (Westerstede)",
+    "bundesland": "Niedersachsen"
+  },
+  "WSW": {
+    "longform": "Weißwasser",
+    "bundesland": "Sachsen"
+  },
+  "WT": {
+    "longform": "Waldshut",
+    "bundesland": "Baden-Württemberg"
+  },
+  "WTL": {
+    "longform": "Wittlage",
+    "bundesland": "Niedersachsen"
+  },
+  "WTM": {
+    "longform": "Wittmund",
+    "bundesland": "Niedersachsen"
+  },
+  "WÜ": {
+    "longform": "Würzburg",
+    "bundesland": "Bayern"
+  },
+  "WÜM": {
+    "longform": "Waldmünchen",
+    "bundesland": "Bayern"
+  },
+  "WUG": {
+    "longform": "Weißenburg-Gunzenhausen",
+    "bundesland": "Bayern"
+  },
+  "WUN": {
+    "longform": "Wunsiedel",
+    "bundesland": "Bayern"
+  },
+  "WUR": {
+    "longform": "Wurzen",
+    "bundesland": "Sachsen"
+  },
+  "WW": {
+    "longform": "Westerwaldkreis",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "WZ": {
+    "longform": "Wetzlar",
+    "bundesland": "Hessen"
+  },
+  "WZL": {
+    "longform": "Wanzleben",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "Z": {
+    "longform": "Zwickau",
+    "bundesland": "Sachsen"
+  },
+  "ZE": {
+    "longform": "Zerbst",
+    "bundesland": "Sachsen-Anhalt"
+  },
+  "ZEL": {
+    "longform": "Zell (Mosel)",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "ZI": {
+    "longform": "Löbau-Zittau",
+    "bundesland": "Sachsen"
+  },
+  "ZIG": {
+    "longform": "Ziegenhain (Schwalm-Eder-Kreis)",
+    "bundesland": "Hessen"
+  },
+  "ZP": {
+    "longform": "Zschopau",
+    "bundesland": "Sachsen"
+  },
+  "ZR": {
+    "longform": "Zeulenroda",
+    "bundesland": "Thüringen"
+  },
+  "ZW": {
+    "longform": "Zweibrücken",
+    "bundesland": "Rheinland-Pfalz"
+  },
+  "ZZ": {
+    "longform": "Zeitz",
+    "bundesland": "Sachsen-Anhalt"
+  }
+}
+```[cite: 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
