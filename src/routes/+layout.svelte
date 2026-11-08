@@ -33,6 +33,7 @@
 		max-width: 1500px;
 		margin: 0 auto;
 		padding: 2rem;
+		box-sizing: border-box;
 	}
 
 	.footer {
@@ -42,4 +43,9 @@
 		border-top: 2px solid var(--color-primary);
 	}
 
+	@media (max-width: 600px) {
+		.content {
+			padding: 1.25rem 1rem;
+		}
+	}
 </style>

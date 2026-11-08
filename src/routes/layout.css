@@ -1,83 +1,101 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
-@import "../../src/lib/assets/sanzo-3-palettes.css";
-@import "../../src/lib/assets/elouensthemes.css";
+@import '../../src/lib/assets/sanzo-3-palettes.css';
+@import '../../src/lib/assets/elouensthemes.css';
 
-:root, [visual-theme="dark"] {
-    --color-primary: hsl(from var(--theme-primary) h s calc(100 - l));
-    --color-secondary: hsl(from var(--theme-secondary) h s calc(100 - l));
-    --color-accent: hsl(from var(--theme-accent) h s calc(100 - l));
-
-    --color-background: hsl(from var(--theme-primary) h s 2%);
-    --color-background-notice: hsl(from var(--theme-primary) h s 6%);
-    --color-text: hsl(from var(--theme-primary) h s 98%);
+:root {
+	--theme-primary: hsl(8.241758241758241, 72.80000000000001%, 50.98039215686274%);
+	--theme-secondary: hsl(38.24175824175825, 67.80000000000005%, 60.98039215686274%);
+	--theme-accent: hsl(203.2417582417583, 70.30000000000008%, 45.98039215686275%);
 }
+:root,
+[visual-theme='light'] {
+	--color-primary: var(--theme-primary);
+	--color-secondary: var(--theme-secondary);
+	--color-accent: var(--theme-accent);
 
-[visual-theme="light"] {
-    --color-primary: var(--theme-primary);
-    --color-secondary: var(--theme-secondary);
-    --color-accent: var(--theme-accent);
+	--color-background: hsl(from var(--theme-primary) h s 98%);
+	--color-background-notice: hsl(from var(--theme-primary) h s 94%);
+	--color-background-hover: hsl(from var(--theme-primary) h s l / 0.1);
+	--color-text: hsl(from var(--theme-primary) h s 2%);
+}
+[visual-theme='dark'] {
+	--color-primary: hsl(from var(--theme-primary) h s calc(100 - l));
+	--color-secondary: hsl(from var(--theme-secondary) h s calc(100 - l));
+	--color-accent: hsl(from var(--theme-accent) h s calc(100 - l));
 
-    --color-background: hsl(from var(--theme-primary) h s 98%);
-    --color-background-notice: hsl(from var(--theme-primary) h s 94%);
-    --color-background-hover: hsl(from var(--theme-primary) h s l / 0.1);
-    --color-text: hsl(from var(--theme-primary) h s 2%);
+	--color-background: hsl(from var(--theme-primary) h s 2%);
+	--color-background-notice: hsl(from var(--theme-primary) h s 6%);
+	--color-text: hsl(from var(--theme-primary) h s 98%);
 }
 
 body {
-    background-color: var(--color-background);
-    color: var(--color-text);
+	background-color: var(--color-background);
+	color: var(--color-text);
 }
 
 h1 {
-    font-size: 2rem;
-    font-weight: bold;
+	font-size: 2rem;
+	font-weight: bold;
+}
+h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
 }
 
 .bold {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .notice-text {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--color-accent);
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: var(--color-accent);
 }
 
 .back-text {
-    font-size: 0.9rem;
+	font-size: 0.9rem;
 }
 
 .left-align {
-    text-align: left;
+	text-align: left;
 }
 
 .center-align {
-    text-align: center;
+	text-align: center;
 }
 
 .icon {
-    stroke: var(--color-primary);
+	stroke: var(--color-primary);
 }
 
 .header {
-    display: grid;
-    grid-template-rows: max-content max-content;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
-    padding-bottom: 1em;
+	display: grid;
+	grid-template-rows: max-content max-content;
+	align-items: center;
+	width: 100%;
+	margin: 0 auto;
+	padding-bottom: 1em;
 }
 .header-sub {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .card {
-    background: var(--color-background-notice);
-    padding: 1rem;
-    border-radius: 0.5rem;
+	background: var(--color-background-notice);
+	padding: 1rem;
+	border-radius: 0.5rem;
+}
+
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }

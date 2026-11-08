@@ -1,567 +1,705 @@
 <script lang="ts">
-    import profilePic from '$lib/assets/profilepic.png';
-    import { Mail, Cake, Phone, MapPinned, House, Calendar } from 'lucide-svelte';
-    import Linkedin from '$lib/components/icons/Linkedin.svelte';
-    import Github from '$lib/components/icons/Github.svelte';
-    import Rating from '$lib/components/Rating.svelte';
-    import DownloadButton from '$lib/components/DownloadButton.svelte';
-    import CustomSelect from '$lib/components/CustomSelect.svelte';
+	import profilePic from '$lib/assets/profilepic.png';
+	import { Mail, Cake, Phone, MapPinned, House, Calendar } from 'lucide-svelte';
+	import Linkedin from '$lib/components/icons/Linkedin.svelte';
+	import Github from '$lib/components/icons/Github.svelte';
+	import Rating from '$lib/components/Rating.svelte';
+	import DownloadButton from '$lib/components/DownloadButton.svelte';
+	import CustomSelect from '$lib/components/CustomSelect.svelte';
 
-    import en from '$lib/locales/en.json';
-    import de from '$lib/locales/de.json';
+	import en from '$lib/locales/en.json';
+	import de from '$lib/locales/de.json';
 
-    const dict = { en, de };
+	const dict = { en, de };
 
-    let currentLang = $state('en');
-    let t = $derived(dict[currentLang as keyof typeof dict]);
+	type OrcidWorkSummary = {
+		'put-code': number;
+		'publication-date'?: { year?: { value?: string } };
+	};
 
-    let currentCV = $state('scientific');
+	type OrcidContributor = {
+		'credit-name'?: { value?: string };
+	};
 
-    import { onMount } from 'svelte';
-    let { orcidId = '0009-0006-3796-9343' } = $props();
-    let publications = $state([]);
-    let loading = $state(true);
-    let error = $state(null);
-    let maxAuthorsToShow = 2;
-    
-    onMount(async () => {
-        try {
-            const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcidId}/works`, {
-                headers: {
-                'Accept': 'application/json'
-                }
-            });
+	type Publication = {
+		title: string;
+		year: string;
+		journal: string | null;
+		doiUrl: string;
+		authors: string[];
+		hasMoreAuthors: boolean;
+		includingAuthor: string | null;
+	};
 
-            const data = await summaryRes.json();
-            let parsedData = data.group.map(item => item["work-summary"][0]);
-            parsedData.sort((a, b) => {
-                const yearA = parseInt(a['publication-date']?.year?.value || '0');
-                const yearB = parseInt(b['publication-date']?.year?.value || '0');
-                return yearB - yearA;
-            });
-            const recentWorks = parsedData.slice(0, 3);
+	let currentLang = $state('en');
+	let t = $derived(dict[currentLang as keyof typeof dict]);
 
-            const worksWithAuthors = await Promise.all(
-                recentWorks.map(async (work) => {
-                    const putCode = work['put-code'];
+	let currentCV = $state('scientific');
 
-                    const detailRes = await fetch(`https://pub.orcid.org/v3.0/${orcidId}/work/${putCode}`, {
-                        headers: { 'Accept': 'application/json' }
-                    });
+	import { onMount } from 'svelte';
+	const orcidId = '0009-0006-3796-9343';
+	let publications = $state<Publication[]>([]);
+	let loading = $state(true);
+	let error = $state<string | null>(null);
+	let maxAuthorsToShow = 2;
 
-                    const detail = await detailRes.json();
-                    const contributors = detail.contributors?.contributor || [];
-                    const authors = contributors
-                        .map(c => c['credit-name']?.value)
-                        .filter(Boolean) // Remove empty/null names
-                    
-                    const myName = "Corvest";
-                    const boldIfMe = (name) => name.includes(myName) ? `<strong>${name}</strong>` : name;
-                    let authorStr = "";
-                    if (authors.length > maxAuthorsToShow) {
-                        const myIdx = authors.findIndex(name => name.includes(myName));
-                        if (myIdx > maxAuthorsToShow - 1) {
-                            authorStr = `${authors[0]}, ${authors[1]}, <em>et al.</em> (including ${boldIfMe(authors[myIdx])})`;
-                        } else {
-                            authorStr = `${boldIfMe(authors[0])}, ${boldIfMe(authors[1])}, <em>et al.</em>`;
-                        }
-                    } else {
-                        authorStr = authors.map(boldIfMe).join(', ');
-                    }
-                    
-                    const doiUrl =  detail["external-ids"]["external-id"][0]["external-id-url"]["value"]
-                    const title = detail["title"]["title"]["value"]
-                    return {
-                        title: title,
-                        year: detail['publication-date']?.year?.value || 'Unknown',
-                        journal: detail['journal-title']?.value || null,
-                        doiUrl: doiUrl,
-                        authors: authorStr || "Authors not listed"
-                    };
-                })
-            );
-            publications = worksWithAuthors.filter(w => w !== null);
-        } catch (err) {
-            error = err.message;
-        } finally {
-            loading = false
-        }
-    });
+	onMount(async () => {
+		try {
+			const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcidId}/works`, {
+				headers: {
+					Accept: 'application/json'
+				}
+			});
 
-    function triggerPrint() {
-        console.log("Printing CV...");
-        window.print();
-    }
+			const data = (await summaryRes.json()) as {
+				group?: Array<{ 'work-summary': OrcidWorkSummary[] }>;
+			};
+			const parsedData = (data.group ?? [])
+				.map((item) => item['work-summary'][0])
+				.filter((work): work is OrcidWorkSummary => work !== undefined);
+			parsedData.sort((a, b) => {
+				const yearA = parseInt(a['publication-date']?.year?.value || '0');
+				const yearB = parseInt(b['publication-date']?.year?.value || '0');
+				return yearB - yearA;
+			});
+			const recentWorks = parsedData.slice(0, 3);
 
+			const worksWithAuthors = await Promise.all(
+				recentWorks.map(async (work): Promise<Publication | null> => {
+					const putCode = work['put-code'];
+
+					const detailRes = await fetch(`https://pub.orcid.org/v3.0/${orcidId}/work/${putCode}`, {
+						headers: { Accept: 'application/json' }
+					});
+
+					const detail = (await detailRes.json()) as {
+						contributors?: { contributor?: OrcidContributor[] };
+						'external-ids': {
+							'external-id': Array<{
+								'external-id-url': { value: string };
+							}>;
+						};
+						title: { title: { value: string } };
+						'publication-date'?: { year?: { value?: string } };
+						'journal-title'?: { value?: string };
+					};
+					const contributors = detail.contributors?.contributor ?? [];
+					const authors = contributors
+						.map((c) => c['credit-name']?.value)
+						.filter((name): name is string => Boolean(name));
+
+					const myName = 'Corvest';
+					const myIdx = authors.findIndex((name) => name.includes(myName));
+					const visibleAuthors =
+						authors.length > maxAuthorsToShow ? authors.slice(0, maxAuthorsToShow) : authors;
+
+					const doiUrl = detail['external-ids']['external-id'][0]['external-id-url']['value'];
+					const title = detail['title']['title']['value'];
+					return {
+						title: title,
+						year: detail['publication-date']?.year?.value || 'Unknown',
+						journal: detail['journal-title']?.value || null,
+						doiUrl: doiUrl,
+						authors: visibleAuthors.length > 0 ? visibleAuthors : ['Authors not listed'],
+						hasMoreAuthors: authors.length > maxAuthorsToShow,
+						includingAuthor: myIdx > maxAuthorsToShow - 1 ? authors[myIdx] : null
+					};
+				})
+			);
+			publications = worksWithAuthors.filter((w) => w !== null);
+		} catch (err) {
+			error = err instanceof Error ? err.message : 'Unable to load publications.';
+		} finally {
+			loading = false;
+		}
+	});
+
+	function triggerPrint() {
+		console.log('Printing CV...');
+		window.print();
+	}
 </script>
 
-<div class=header>
-    <h1 style="grid-area: title;">Curriculum Vitae</h1>
-    <p style="grid-area: subtitle;">This CV can be directly downloaded or printed.</p>
-    <CustomSelect bind:value={currentLang} options={[{id: 'en', label: 'English'}, {id: "de", label: "Deutsch"}]} style="grid-area: langSelect;"/>
-    <CustomSelect bind:value={currentCV} options={[{id: 'scientific', label: 'Scientific'}, {id: 'industry', label: 'Industry'}]} style="grid-area: cvSelect;"/>
-    <DownloadButton onclick={triggerPrint} style="grid-area: download; width: 100%"/>
+<div class="header">
+	<h1 style="grid-area: title;">Curriculum Vitae</h1>
+	<p style="grid-area: subtitle;">This CV can be directly downloaded or printed.</p>
+	<CustomSelect
+		bind:value={currentLang}
+		options={[
+			{ id: 'en', label: 'English' },
+			{ id: 'de', label: 'Deutsch' }
+		]}
+		style="grid-area: langSelect;"
+	/>
+	<CustomSelect
+		bind:value={currentCV}
+		options={[
+			{ id: 'scientific', label: 'Scientific' },
+			{ id: 'industry', label: 'Industry' }
+		]}
+		style="grid-area: cvSelect;"
+	/>
+	<DownloadButton onclick={triggerPrint} style="grid-area: download; width: 100%" />
 </div>
 
 {#snippet education()}
-    <div class="cv-section">
-        <h1>{t.higherEd}</h1>
-        <div class="cv-education">
-            <p><strong>M. Sc.</strong><br/>{t.inBiology}<br/></p>
-            <p>{t.msDesc}</p>
-            <div class="cv-education-date">
-                <div class="cv-header-point">
-                    <Calendar class="cv-header-icon"/><span>2022 - 2026</span>
-                </div>
-                <div class="cv-header-point">
-                    <MapPinned class="cv-header-icon"/><span>RWTH, Aachen</span>
-                </div>
-            </div>
-        </div>
-        <div class="cv-education">
-            <p><strong>B. Sc.</strong><br/>{t.inBiology}<br/></p>
-            <p>{t.bsDesc}</p>
-            <div class="cv-education-date">
-                <div class="cv-header-point">
-                    <Calendar class="cv-header-icon"/><span>2019 - 2022</span>
-                </div>
-                <div class="cv-header-point">
-                    <MapPinned class="cv-header-icon"/><span>RWTH, Aachen</span>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="cv-section">
+		<h1>{t.higherEd}</h1>
+		<div class="cv-education">
+			<p><strong>M. Sc.</strong><br />{t.inBiology}<br /></p>
+			<p>{t.msDesc}</p>
+			<div class="cv-education-date">
+				<div class="cv-header-point">
+					<Calendar class="cv-header-icon" /><span>2022 - 2026</span>
+				</div>
+				<div class="cv-header-point">
+					<MapPinned class="cv-header-icon" /><span>RWTH, Aachen</span>
+				</div>
+			</div>
+		</div>
+		<div class="cv-education">
+			<p><strong>B. Sc.</strong><br />{t.inBiology}<br /></p>
+			<p>{t.bsDesc}</p>
+			<div class="cv-education-date">
+				<div class="cv-header-point">
+					<Calendar class="cv-header-icon" /><span>2019 - 2022</span>
+				</div>
+				<div class="cv-header-point">
+					<MapPinned class="cv-header-icon" /><span>RWTH, Aachen</span>
+				</div>
+			</div>
+		</div>
+	</div>
 {/snippet}
 
 <div class="cv-document {currentLang}">
-    <div class="cv-header">
-        <div class="cv-header-info">
-            <img src={profilePic} alt="Elouen Corvest"/>
-            <div class="cv-header-text">
-                <h1>Elouen Corvest</h1>
-                <h2>{t.subtitle}</h2>
-                <div class="cv-header-points">
-                    <div class="cv-header-point">
-                        <Cake class="cv-header-icon"/>
-                        <p>19.06.2000</p>
-                    </div>
-                    <div class="cv-header-point">
-                        <Mail class="cv-header-icon"/>
-                        <p>elouen.corvest@protonmail.com</p>
-                    </div>
-                    <div class="cv-header-point">
-                        <Phone class="cv-header-icon"/>
-                        <p>+4917672888102</p>
-                    </div>
-                    <div class="cv-header-point">
-                        <MapPinned class="cv-header-icon"/>
-                        <p>Cologne, Germany</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="cv-header-links">
-            <a href="https://elouencorvest.github.io/homepage/" target="_blank" class="cv-header-point">
-                <House class="cv-header-icon"/><span>elouencorvest.github.io/homepage/</span>
-            </a>
-            <a href="https://www.linkedin.com/in/elouen-corvest/" target="_blank" class="cv-header-point">
-                <Linkedin class="cv-header-icon"/><span>linkedin.com/in/elouen-corvest</span>
-            </a>
-            <a href="https://github.com/ElouenCorvest" target="_blank" class="cv-header-point">
-                <Github class="cv-header-icon"/><span>github.com/ElouenCorvest</span>
-            </a>
-        </div>
-        <div class="cv-header-quote">
-            <p>"Life is meant to be felt. Else why live? Valleys make the mountains."</p>
-            <p>~ Pierce Brown</p>
-        </div>
-
-            
-    </div>
-    <div class="cv-left cv-col">
-        {#if (currentCV === 'scientific')}
-            {@render education()}
-        {/if}
-        <div class="cv-section publication-list">
-            <h1>{t.writtenWork}</h1>
-            {#if loading}
-                <p>Loading...</p>
-            {:else if error}
-                <p>Error: {error}</p>
-            {:else if publications.length > 0}
-                {#each publications as publication, i}
-                    <p>{@html publication.authors} ({publication.year}) {publication.title}. {#if publication.journal}<em>{publication.journal}.</em> {/if}</p>
-                    <a class:sepline={i !== publications.length - 1} href={publication.doiUrl} target="_blank">{publication.doiUrl}</a>
-                {/each}
-            {:else}
-                <p>{t.noPublications}</p>
-            {/if}
-        </div>
-        <div class="cv-section">
-            <h1>{t.workExp}</h1>
-            <div class="cv-experience">
-                <div>
-                    <strong>{t.consulGreensloth}:</strong>
-                    <p>{t.consulGreenslothDesc}</p>
-                </div>
-                <div class="cv-education-date">
-                    <div class="cv-header-point">
-                        <Calendar class="cv-header-icon"/><span>2026</span>
-                    </div>
-                    <div class="cv-header-point">
-                        <MapPinned class="cv-header-icon"/><span>RWTH, Aachen</span>
-                    </div>
-                </div>
-            </div>
-            <div class="cv-experience">
-                <div>
-                    <strong>{t.researchAssistant}:</strong>
-                    <p>{t.researchAssistantDesc}</p>
-                </div>
-                <div class="cv-education-date">
-                    <div class="cv-header-point">
-                        <Calendar class="cv-header-icon"/><span>2024</span>
-                    </div>
-                    <div class="cv-header-point">
-                        <MapPinned class="cv-header-icon"/><span>Uni. of Cologne</span>
-                    </div>
-                </div>
-            </div>
-            <div class="cv-experience">
-                <div>
-                    <strong>{t.teachingAssistant}:</strong>
-                    <p>{t.teachingAssistantDesc}</p>
-                </div>
-                <div class="cv-education-date">
-                    <div class="cv-header-point">
-                        <Calendar class="cv-header-icon"/><span>2022-2024</span>
-                    </div>
-                    <div class="cv-header-point">
-                        <MapPinned class="cv-header-icon"/><span>RWTH Aachen</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="cv-right cv-col">
-        <div class="cv-section">
-            <h1>{t.languages}</h1>
-            <div class="cv-rating cols-3">
-                <p>{t.english}</p>
-                <p>C2*</p>
-                <Rating score={6} maxScore={6} size="16px" />
-            </div>
-            <div class="cv-rating cols-3">
-                <p>{t.french}</p>
-                <p>C1*</p>
-                <Rating score={5} maxScore={6} size="16px" />
-            </div>
-            <div class="cv-rating cols-3">
-                <p>{t.german}</p>
-                <p>C1*</p>
-                <Rating score={5} maxScore={6} size="16px" />
-            </div>
-            <p class="cv-footer">*{t.cefrRating}</p>
-        </div>
-        <div class="cv-section">
-            <h1>{t.itSkills}</h1>
-            <div class="cv-rating cols-2">
-                <p>Python</p>
-                <Rating score={4} maxScore={5} size="16px" />
-            </div>
-            <div class="cv-rating sepline cols-2">
-                <p>{t.webDev}</p>
-                <Rating score={3} maxScore={5} size="16px" />
-            </div>
-            <div class="cv-rating cols-2">
-                <p>M365</p>
-                <Rating score={5} maxScore={5} size="16px" />
-            </div>
-            <div class="cv-rating cols-2 sepline">
-                <p>LaTeX</p>
-                <Rating score={3} maxScore={5} size="16px" />
-            </div>
-            <div class="cv-rating cols-2">
-                <p>{t.rasterGraphics}</p>
-                <Rating score={3} maxScore={5} size="16px" />
-            </div>
-            <div class="cv-rating cols-2">
-                <p>{t.vectorGraphics}</p>
-                <Rating score={4} maxScore={5} size="16px" />
-            </div>
-        </div>
-        <div class="cv-section">
-            <h1>{t.certifications}</h1>
-            <p><strong>{t.driversLicense}:</strong> AM/B/L/A</p>
-            <p><strong>{t.posterAward} (2024):</strong><br/> Second European Congress of Photosynthesis Research</p>
-        </div>
-        <div class="cv-section">
-            <h1>{t.referees}</h1>
-            <p><strong>Prof. Dr. rer. nat. Anna Matuszyńska</strong><br/>Computational Life Sciences<br/>RWTH Aachen<br/></p>
-            <div class="cv-header-point">
-                <Mail class="cv-header-icon"/><span>anna.matuszynska@rwth-aachen.de</span>
-            </div>
-            <div class="cv-header-point">
-                <MapPinned class="cv-header-icon"/><span>Worringerweg 1, 52074 Aachen, Germany</span>
-            </div>
-        </div>
-    </div>
+	<div class="cv-header">
+		<div class="cv-header-info">
+			<img src={profilePic} alt="Elouen Corvest" />
+			<div class="cv-header-text">
+				<h1>Elouen Corvest</h1>
+				<h2>{t.subtitle}</h2>
+				<div class="cv-header-points">
+					<div class="cv-header-point">
+						<Cake class="cv-header-icon" />
+						<p>19.06.2000</p>
+					</div>
+					<div class="cv-header-point">
+						<Mail class="cv-header-icon" />
+						<p>elouen.corvest@protonmail.com</p>
+					</div>
+					<div class="cv-header-point">
+						<Phone class="cv-header-icon" />
+						<p>+4917672888102</p>
+					</div>
+					<div class="cv-header-point">
+						<MapPinned class="cv-header-icon" />
+						<p>Cologne, Germany</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cv-header-links">
+			<a href="https://elouencorvest.github.io/homepage/" target="_blank" class="cv-header-point">
+				<House class="cv-header-icon" /><span>elouencorvest.github.io/homepage/</span>
+			</a>
+			<a href="https://www.linkedin.com/in/elouen-corvest/" target="_blank" class="cv-header-point">
+				<Linkedin class="cv-header-icon" /><span>linkedin.com/in/elouen-corvest</span>
+			</a>
+			<a href="https://github.com/ElouenCorvest" target="_blank" class="cv-header-point">
+				<Github class="cv-header-icon" /><span>github.com/ElouenCorvest</span>
+			</a>
+		</div>
+		<div class="cv-header-quote">
+			<p>"Life is meant to be felt. Else why live? Valleys make the mountains."</p>
+			<p>~ Pierce Brown</p>
+		</div>
+	</div>
+	<div class="cv-left cv-col">
+		{#if currentCV === 'scientific'}
+			{@render education()}
+		{/if}
+		<div class="cv-section publication-list">
+			<h1>{t.writtenWork}</h1>
+			{#if loading}
+				<p>Loading...</p>
+			{:else if error}
+				<p>Error: {error}</p>
+			{:else if publications.length > 0}
+				{#each publications as publication, i (publication.doiUrl)}
+					<p>
+						{#each publication.authors as author, authorIndex (`${author}-${authorIndex}`)}
+							{#if authorIndex > 0},
+							{/if}
+							{#if author.includes('Corvest')}<strong>{author}</strong>{:else}{author}{/if}
+						{/each}
+						{#if publication.hasMoreAuthors}, <em>et al.</em>{/if}
+						{#if publication.includingAuthor}
+							(including
+							<strong>{publication.includingAuthor}</strong>){/if}
+						({publication.year}) {publication.title}. {#if publication.journal}<em
+								>{publication.journal}.</em
+							>{/if}
+					</p>
+					<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+					<a class:sepline={i !== publications.length - 1} href={publication.doiUrl} target="_blank"
+						>{publication.doiUrl}</a
+					>
+				{/each}
+			{:else}
+				<p>{t.noPublications}</p>
+			{/if}
+		</div>
+		<div class="cv-section">
+			<h1>{t.workExp}</h1>
+			<div class="cv-experience">
+				<div>
+					<strong>{t.consulGreensloth}:</strong>
+					<p>{t.consulGreenslothDesc}</p>
+				</div>
+				<div class="cv-education-date">
+					<div class="cv-header-point">
+						<Calendar class="cv-header-icon" /><span>2026</span>
+					</div>
+					<div class="cv-header-point">
+						<MapPinned class="cv-header-icon" /><span>RWTH, Aachen</span>
+					</div>
+				</div>
+			</div>
+			<div class="cv-experience">
+				<div>
+					<strong>{t.researchAssistant}:</strong>
+					<p>{t.researchAssistantDesc}</p>
+				</div>
+				<div class="cv-education-date">
+					<div class="cv-header-point">
+						<Calendar class="cv-header-icon" /><span>2024</span>
+					</div>
+					<div class="cv-header-point">
+						<MapPinned class="cv-header-icon" /><span>Uni. of Cologne</span>
+					</div>
+				</div>
+			</div>
+			<div class="cv-experience">
+				<div>
+					<strong>{t.teachingAssistant}:</strong>
+					<p>{t.teachingAssistantDesc}</p>
+				</div>
+				<div class="cv-education-date">
+					<div class="cv-header-point">
+						<Calendar class="cv-header-icon" /><span>2022-2024</span>
+					</div>
+					<div class="cv-header-point">
+						<MapPinned class="cv-header-icon" /><span>RWTH Aachen</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cv-right cv-col">
+		<div class="cv-section">
+			<h1>{t.languages}</h1>
+			<div class="cv-rating cols-3">
+				<p>{t.english}</p>
+				<p>C2*</p>
+				<Rating score={6} maxScore={6} size="16px" />
+			</div>
+			<div class="cv-rating cols-3">
+				<p>{t.french}</p>
+				<p>C1*</p>
+				<Rating score={5} maxScore={6} size="16px" />
+			</div>
+			<div class="cv-rating cols-3">
+				<p>{t.german}</p>
+				<p>C1*</p>
+				<Rating score={5} maxScore={6} size="16px" />
+			</div>
+			<p class="cv-footer">*{t.cefrRating}</p>
+		</div>
+		<div class="cv-section">
+			<h1>{t.itSkills}</h1>
+			<div class="cv-rating cols-2">
+				<p>Python</p>
+				<Rating score={4} maxScore={5} size="16px" />
+			</div>
+			<div class="cv-rating sepline cols-2">
+				<p>{t.webDev}</p>
+				<Rating score={3} maxScore={5} size="16px" />
+			</div>
+			<div class="cv-rating cols-2">
+				<p>M365</p>
+				<Rating score={5} maxScore={5} size="16px" />
+			</div>
+			<div class="cv-rating cols-2 sepline">
+				<p>LaTeX</p>
+				<Rating score={3} maxScore={5} size="16px" />
+			</div>
+			<div class="cv-rating cols-2">
+				<p>{t.rasterGraphics}</p>
+				<Rating score={3} maxScore={5} size="16px" />
+			</div>
+			<div class="cv-rating cols-2">
+				<p>{t.vectorGraphics}</p>
+				<Rating score={4} maxScore={5} size="16px" />
+			</div>
+		</div>
+		<div class="cv-section">
+			<h1>{t.certifications}</h1>
+			<p><strong>{t.driversLicense}:</strong> AM/B/L/A</p>
+			<p>
+				<strong>{t.posterAward} (2024):</strong><br /> Second European Congress of Photosynthesis Research
+			</p>
+		</div>
+		<div class="cv-section">
+			<h1>{t.referees}</h1>
+			<p>
+				<strong>Prof. Dr. rer. nat. Anna Matuszyńska</strong><br />Computational Life Sciences<br
+				/>RWTH Aachen<br />
+			</p>
+			<div class="cv-header-point">
+				<Mail class="cv-header-icon" /><span>anna.matuszynska@rwth-aachen.de</span>
+			</div>
+			<div class="cv-header-point">
+				<MapPinned class="cv-header-icon" /><span>Worringerweg 1, 52074 Aachen, Germany</span>
+			</div>
+		</div>
+	</div>
 </div>
 
 <style>
+	.header {
+		display: grid;
+		grid-template-areas:
+			'title title langSelect cvSelect'
+			'subtitle subtitle download download';
+		gap: 0.5em;
+		align-items: center;
+		width: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+		padding-bottom: 1em;
+	}
 
-    .header {
-        display: grid;
-        grid-template-areas:
-            "title title langSelect cvSelect"
-            "subtitle subtitle download download";
-        gap: 0.5em;
-        align-items: center;
-        width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-        padding-bottom: 1em;
-    }
+	.header-controls {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1em;
+		margin-left: auto;
+	}
 
-    .header-controls {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1em;
-        margin-left: auto;
-    }
+	.header-select {
+		display: flex;
+		flex-direction: row;
+		gap: 1em;
+	}
 
-    .header-select {
-        display: flex;
-        flex-direction: row;
-        gap: 1em;
-    }
+	.cv-document {
+		font-size: 0.9rem;
+		color: #000000;
+		display: grid;
+		grid-template-columns: 1.5fr 1fr;
+		grid-template-rows: max-content 1fr;
+		column-gap: 1em;
+		width: 210mm;
+		height: 297mm;
+		margin: 0 auto;
+		padding: 2em;
+		box-sizing: border-box;
+		background: white;
+		box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+		background-image: url('/paper_texture.svg');
+		background-color: rgba(255, 255, 255, 0.8);
+		background-blend-mode: screen;
+	}
 
-    .cv-document {
-        font-size: 0.9rem;
-        color: #000000;
-        display: grid;
-        grid-template-columns: 1.5fr 1fr;
-        grid-template-rows: max-content 1fr;
-        column-gap: 1em;
-        width: 210mm;
-        height: 297mm;
-        margin: 0 auto;
-        padding: 2em;
-        box-sizing: border-box;
-        background: white;
-        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
-        background-image: url('/paper_texture.svg');
-        background-color: rgba(255, 255, 255, 0.8);
-        background-blend-mode: screen;
-    }
+	.cv-document a,
+	.cv-document p,
+	.cv-document span {
+		overflow-wrap: anywhere;
+	}
 
-    .cv-document.de {
-        font-size: 0.88rem;
-    }
+	.cv-document.de {
+		font-size: 0.88rem;
+	}
 
-    .cv-header {
-        max-width: 100%;
-        grid-column: 1 / -1;
-        display: flex;
-        flex-direction: column;
-    }
+	.cv-header {
+		max-width: 100%;
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: column;
+	}
 
-    .cv-header-info {
-        display: grid;
-        grid-template-columns: 1fr 4fr;
-        padding-bottom: 0.5em;
-        border-bottom: 5px solid var(--color-primary);
-    }
+	.cv-header-info {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+		padding-bottom: 0.5em;
+		border-bottom: 5px solid var(--color-primary);
+	}
 
-    .cv-header-info img {
-        border-radius: 50%;
-    }
+	.cv-header-info img {
+		border-radius: 50%;
+	}
 
-    .cv-header-text {
-        flex-grow: 4;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        margin-left: 1em;
+	.cv-header-text {
+		flex-grow: 4;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		margin-left: 1em;
 
-        > h1 {
-            font-size: 3em;
-            line-height: 1.5;
-            margin: 0;
-        }
+		> h1 {
+			font-size: 3em;
+			line-height: 1.5;
+			margin: 0;
+		}
 
-        > h2 {
-            font-size: 1.25em;
-            line-height: 1;
-            margin: 0;
-        }
-    }
+		> h2 {
+			font-size: 1.25em;
+			line-height: 1;
+			margin: 0;
+		}
+	}
 
-    .cv-header-points {
-        flex-grow: 1;
-        display: grid;
-        grid-template-columns: max-content max-content;
-        column-gap: 1em;
-        row-gap: 0.5em;
-        align-content: center;
-        justify-content: start;
-    }
+	.cv-header-points {
+		flex-grow: 1;
+		display: grid;
+		grid-template-columns: max-content max-content;
+		column-gap: 1em;
+		row-gap: 0.5em;
+		align-content: center;
+		justify-content: start;
+	}
 
-    .cv-header-point {
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-        gap: 0.5em;
-        text-align: left;
-        font-size: 1em;
-    }
+	.cv-header-point {
+		display: flex;
+		flex-direction: row;
+		align-items: baseline;
+		gap: 0.5em;
+		text-align: left;
+		font-size: 1em;
+	}
 
-    :global(.cv-header-icon) {
-        width: auto;
-        height: 1.5cap;
-        transform: translateY(20%);
-        stroke: var(--color-primary);
-    }
+	:global(.cv-header-icon) {
+		width: auto;
+		height: 1.5cap;
+		transform: translateY(20%);
+		stroke: var(--color-primary);
+	}
 
-    .cv-header-links {
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        gap: 2em;
-        padding: 0.5em 0;
-    }
+	.cv-header-links {
+		flex-grow: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+		gap: 2em;
+		padding: 0.5em 0;
+	}
 
-    .cv-header-quote {
-        display: flex;
-        flex-direction: row;
-        gap: 1em;
-        justify-content: center;
-        color: var(--color-accent);
-        background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
-        border-radius: 0.5em;
-        border: 5px solid var(--color-primary);
-        padding: 0.5em;
-        
-        > p:first-child {
-            font-style: italic;
-            font-weight: bold;
-            margin: 0;
-            text-align: center;
-        }
+	.cv-header-quote {
+		display: flex;
+		flex-direction: row;
+		gap: 1em;
+		justify-content: center;
+		color: var(--color-accent);
+		background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+		border-radius: 0.5em;
+		border: 5px solid var(--color-primary);
+		padding: 0.5em;
 
-        > p:last-child {
-            text-align: right;
-            margin: 0;
-        }
-    }
+		> p:first-child {
+			font-style: italic;
+			font-weight: bold;
+			margin: 0;
+			text-align: center;
+		}
 
-    .cv-col {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+		> p:last-child {
+			text-align: right;
+			margin: 0;
+		}
+	}
 
-    .cv-section {
-        display: flex;
-        flex-direction: column;
+	.cv-col {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
 
-        > h1 {
-            border-bottom: 2px solid var(--color-primary);
-            margin-bottom: 0.2em;
-        }
+	.cv-section {
+		display: flex;
+		flex-direction: column;
 
-        > :not(:first-child) {
-            padding-left: 0.5em;
-            padding-right: 0.5em;
-        }
-    }
+		> h1 {
+			border-bottom: 2px solid var(--color-primary);
+			margin-bottom: 0.2em;
+		}
 
-    .cv-education {
-        display: grid;
-        grid-template-columns: 1fr 3fr max-content;
-        gap: 0.3em;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        
-        > :first-child {
-            border-right: 0.2em solid var(--color-primary);
-        }
+		> :not(:first-child) {
+			padding-left: 0.5em;
+			padding-right: 0.5em;
+		}
+	}
 
-        > * {
-            padding-bottom: 0.5em;
-        }
-    }
+	.cv-education {
+		display: grid;
+		grid-template-columns: 1fr 3fr max-content;
+		gap: 0.3em;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
 
-    .cv-education-date {
-        display: flex;
-        flex-direction: column;
-        padding-left: 0.2em;
-    }
+		> :first-child {
+			border-right: 0.2em solid var(--color-primary);
+		}
 
-    .cv-experience {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 1em;
-        align-content: center;
-        align-items: center;
-    }
+		> * {
+			padding-bottom: 0.5em;
+		}
+	}
 
-    .cv-rating {
-        padding: 0.1em 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr max-content;
-        align-items: center;
-    }
-    
-    .cols-2 {
-        grid-template-columns: 1fr max-content;
-    }
+	.cv-education-date {
+		display: flex;
+		flex-direction: column;
+		padding-left: 0.2em;
+	}
 
-    .cols-3 {
-        grid-template-columns: 1fr 1fr max-content;
-    }
+	.cv-experience {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 1em;
+		align-content: center;
+		align-items: center;
+	}
 
-    .cv-footer {
-        font-size: 0.75em;
-        color: var(--color-accent);
-        margin-top: 0.5em;
-    }
+	.cv-rating {
+		padding: 0.1em 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr max-content;
+		align-items: center;
+	}
 
-    .sepline {
-        border-bottom: 1px dashed var(--color-primary);
-    }
+	.cols-2 {
+		grid-template-columns: 1fr max-content;
+	}
 
-    @media print {
-        .cv-document {
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-            background-color: "white";
-            background-image: none;
-        }
-        :global(body *) {
-            visibility: hidden;
-        }
+	.cols-3 {
+		grid-template-columns: 1fr 1fr max-content;
+	}
 
-        .cv-document, :global(.cv-document *) {
-            visibility: visible;
-        }
+	.cv-footer {
+		font-size: 0.75em;
+		color: var(--color-accent);
+		margin-top: 0.5em;
+	}
 
-        .cv-document {
-            position: absolute;
-            left: 0;
-            top: 0;
-            margin: 0;
-            width: 100%;
-        }
+	.sepline {
+		border-bottom: 1px dashed var(--color-primary);
+	}
 
-        @page {
-            size: A4 portrait;
-            margin: 0;
-        }
-    }
+	@media (max-width: 600px) {
+		.header {
+			grid-template-areas:
+				'title'
+				'subtitle'
+				'langSelect'
+				'cvSelect'
+				'download';
+			grid-template-columns: 1fr;
+		}
 
+		.cv-document {
+			grid-template-columns: 1fr;
+			grid-template-rows: max-content;
+			width: 100%;
+			height: auto;
+			padding: 1rem;
+		}
+
+		.cv-header-info {
+			grid-template-columns: 1fr;
+			justify-items: center;
+			gap: 0.75rem;
+		}
+
+		.cv-header-text {
+			width: 100%;
+			margin-left: 0;
+			text-align: center;
+		}
+
+		.cv-header-text > h1 {
+			font-size: 2rem;
+		}
+
+		.cv-header-points {
+			grid-template-columns: 1fr;
+			justify-items: center;
+			width: 100%;
+		}
+
+		.cv-header-links {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
+		}
+
+		.cv-header-quote {
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+
+		.cv-education,
+		.cv-experience {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+		}
+
+		.cv-education > :first-child {
+			border-right: 0;
+			border-bottom: 0.2em solid var(--color-primary);
+		}
+
+		.cv-education-date {
+			flex-direction: row;
+			justify-content: space-between;
+			gap: 0.5rem;
+		}
+
+		.cv-rating.cols-2,
+		.cv-rating.cols-3 {
+			grid-template-columns: 1fr max-content;
+		}
+	}
+
+	@media print {
+		.cv-document {
+			-webkit-print-color-adjust: exact;
+			print-color-adjust: exact;
+			background-color: 'white';
+			background-image: none;
+		}
+		:global(body *) {
+			visibility: hidden;
+		}
+
+		.cv-document,
+		:global(.cv-document *) {
+			visibility: visible;
+		}
+
+		.cv-document {
+			position: absolute;
+			left: 0;
+			top: 0;
+			margin: 0;
+			width: 100%;
+		}
+
+		@page {
+			size: A4 portrait;
+			margin: 0;
+		}
+	}
 </style>
