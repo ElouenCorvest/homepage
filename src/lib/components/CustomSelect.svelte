@@ -68,7 +68,7 @@
 	.custom-select {
 		position: relative;
 		width: 100%;
-		max-width: 200px;
+		max-width: 300px;
 	}
 
 	.trigger {

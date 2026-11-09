@@ -131,14 +131,14 @@
 		]}
 		style="grid-area: langSelect;"
 	/>
-	<CustomSelect
+	<!-- <CustomSelect
 		bind:value={currentCV}
 		options={[
 			{ id: 'scientific', label: 'Scientific' },
 			{ id: 'industry', label: 'Industry' }
 		]}
 		style="grid-area: cvSelect;"
-	/>
+	/> -->
 	<DownloadButton onclick={triggerPrint} style="grid-area: download; width: 100%" />
 </div>
 
@@ -301,17 +301,17 @@
 			<h1>{t.languages}</h1>
 			<div class="cv-rating cols-3">
 				<p>{t.english}</p>
-				<p>C2*</p>
+				<p class="center-align">C2*</p>
 				<Rating score={6} maxScore={6} size="16px" />
 			</div>
 			<div class="cv-rating cols-3">
 				<p>{t.french}</p>
-				<p>C1*</p>
+				<p class="center-align">C1*</p>
 				<Rating score={5} maxScore={6} size="16px" />
 			</div>
 			<div class="cv-rating cols-3">
 				<p>{t.german}</p>
-				<p>C1*</p>
+				<p class="center-align">C1*</p>
 				<Rating score={5} maxScore={6} size="16px" />
 			</div>
 			<p class="cv-footer">*{t.cefrRating}</p>
@@ -332,7 +332,7 @@
 			</div>
 			<div class="cv-rating cols-2 sepline">
 				<p>LaTeX</p>
-				<Rating score={3} maxScore={5} size="16px" />
+				<Rating score={4} maxScore={5} size="16px" />
 			</div>
 			<div class="cv-rating cols-2">
 				<p>{t.rasterGraphics}</p>
@@ -370,8 +370,8 @@
 	.header {
 		display: grid;
 		grid-template-areas:
-			'title title langSelect cvSelect'
-			'subtitle subtitle download download';
+			'title title langSelect'
+			'subtitle subtitle download';
 		gap: 0.5em;
 		align-items: center;
 		width: 100%;
@@ -404,7 +404,7 @@
 		width: 210mm;
 		height: 297mm;
 		margin: 0 auto;
-		padding: 2em;
+		padding: 1em;
 		box-sizing: border-box;
 		background: white;
 		box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
@@ -433,6 +433,7 @@
 	.cv-header-info {
 		display: grid;
 		grid-template-columns: 1fr 4fr;
+		gap: 1em;
 		padding-bottom: 0.5em;
 		border-bottom: 5px solid var(--color-primary);
 	}
@@ -446,7 +447,7 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
-		margin-left: 1em;
+		/* margin-left: 1em; */
 
 		> h1 {
 			font-size: 3em;
@@ -457,7 +458,7 @@
 		> h2 {
 			font-size: 1.25em;
 			line-height: 1;
-			margin: 0;
+			margin-left: 0.1em;
 		}
 	}
 
@@ -585,7 +586,7 @@
 	}
 
 	.cols-3 {
-		grid-template-columns: 1fr 1fr max-content;
+		grid-template-columns: 1.5fr 1fr max-content;
 	}
 
 	.cv-footer {
