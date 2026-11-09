@@ -57,19 +57,19 @@
 		<a
 			href={resolve('/')}
 			class="nav-link"
-			class:active={page.url.pathname === '/'}
+			class:active={page.route.id === '/'}
 			onclick={() => (isMenuOpen = false)}>Home</a
 		>
 		<a
 			href={resolve('/cv')}
 			class="nav-link"
-			class:active={page.url.pathname.startsWith('/cv')}
+			class:active={page.route.id?.startsWith('/cv')}
 			onclick={() => (isMenuOpen = false)}>CV</a
 		>
 		<a
 			href={resolve('/projects')}
 			class="nav-link"
-			class:active={page.url.pathname.startsWith('/projects')}
+			class:active={page.route.id?.startsWith('/projects')}
 			onclick={() => (isMenuOpen = false)}>Projects</a
 		>
 	</div>
